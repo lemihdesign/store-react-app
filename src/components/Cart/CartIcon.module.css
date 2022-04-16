@@ -1,0 +1,27 @@
+.cart-icon-container {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  right: -3px;
+  z-index: 2;
+  font-size: 11px;
+  border-radius: 50%;
+  background: #f87538;
+  width: 20px;
+  height: 20px;
+  line-height: 0px;
+  display: block;
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}

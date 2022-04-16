@@ -1,0 +1,23 @@
+div.bar {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+}
+
+div.bar ul li {
+  display: inline-block;
+  /* width: 100px; */
+  font-family: "Roboto";
+  font-size: 13px;
+  margin-right: 25px;
+  padding-right: 25px;
+  border-right: 1px solid #000;
+  cursor: not-allowed;
+}
+
+div.bar ul li:last-child {
+  border-right: none;
+}
