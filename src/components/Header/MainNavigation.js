@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import logoImage from "../../assets/logo2.png";
 
 import CartIcon from "../Cart/CartIcon";
@@ -12,10 +14,18 @@ const MainNavigation = () => {
       </div>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Men</li>
-          <li>Woman</li>
-          <li>Kids</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/store/men">Men</Link>
+          </li>
+          <li>
+            <Link to="/store/woman">Woman</Link>
+          </li>
+          <li>
+            <Link to="/store/kids">Kids</Link>
+          </li>
         </ul>
       </nav>
       <div className={classes.cart}>
