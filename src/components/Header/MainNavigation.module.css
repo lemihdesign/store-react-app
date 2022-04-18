@@ -4,7 +4,7 @@ div.navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 25px auto 25px auto;
 }
 
 div.navigation nav ul {

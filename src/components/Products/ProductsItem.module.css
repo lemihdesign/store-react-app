@@ -1,0 +1,40 @@
+/* div.productBox {
+  width: 33%;
+  height: 100%;
+  display: block;
+} */
+
+div.product-box img {
+  width: 400px;
+  height: 400px;
+}
+
+div.product-box .product-name {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 800;
+  color: #333;
+}
+
+div.product-box .product-controls {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+div.product-box .product-price {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 14px;
+  color: #4b4b4b;
+}
+
+div.product-box .add-to-cart-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}

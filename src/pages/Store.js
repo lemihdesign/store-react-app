@@ -1,24 +1,8 @@
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import ProductsItem from "../components/Products/ProductsItem";
 
-const DUMMY_DATA = [
-  {
-    title: "Nike Air Force 1 Pixel",
-    price: "$110",
-    source: "woman-shoes",
-  },
-  {
-    title: "Nike Free Metcon 4",
-    price: "$120",
-    source: "men-shoes",
-  },
-  {
-    title: "Nike Air Max 90 LTR SE",
-    price: "$110",
-    source: "kids-shoes",
-  },
-];
+import classes from "./Store.module.css";
 
 const Store = (props) => {
   const params = useParams();
@@ -26,8 +10,13 @@ const Store = (props) => {
 
   const { productsList } = props;
 
-  const products = productsList.map((product) => (
+  const products = productsList.filter(
+    (product) => product.source === `${productsType}-shoes`
+  );
+
+  const filteredProducts = products.map((product) => (
     <ProductsItem
+      key={product.img}
       title={product.title}
       price={product.price}
       source={product.source}
@@ -35,19 +24,32 @@ const Store = (props) => {
     />
   ));
 
-  const filteredProducts = products.filter((product) =>
-    console.log(product.source)
-  );
+  const numberOfResults = filteredProducts.length;
 
   let storeHeader;
-  if (productsType === "men") storeHeader = <p>Men's Trainers & Shoes</p>;
-  if (productsType === "woman") storeHeader = <p>Woman's Trainers & Shoes</p>;
-  if (productsType === "kids") storeHeader = <p>Kids's Trainers & Shoes</p>;
+  if (productsType === "men")
+    storeHeader = <p className={classes.storeHeader}>Men's Trainers & Shoes</p>;
+  if (productsType === "women")
+    storeHeader = (
+      <p className={classes.storeHeader}>Women's Trainers & Shoes</p>
+    );
+  if (productsType === "kids")
+    storeHeader = (
+      <p className={classes.storeHeader}>Kids's Trainers & Shoes</p>
+    );
 
   return (
     <Layout>
-      {storeHeader}
-      <div>{products}</div>
+      <div className={classes.productsHeader}>
+        {storeHeader}
+        <div className={classes.resultSection}>
+          {storeHeader}
+          <p className={classes["number-of-results"]}>
+            - {numberOfResults} results
+          </p>
+        </div>
+      </div>
+      <div className={classes.productsContainer}>{filteredProducts}</div>
     </Layout>
   );
 };
