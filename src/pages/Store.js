@@ -1,5 +1,9 @@
+import { Fragment } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import FilterBar from "../components/Layout/FilterBar";
 import Layout from "../components/Layout/Layout";
+import ProductsHeader from "../components/Layout/ProductsHeader";
 import ProductsItem from "../components/Products/ProductsItem";
 
 import classes from "./Store.module.css";
@@ -7,20 +11,31 @@ import classes from "./Store.module.css";
 const Store = (props) => {
   const params = useParams();
   const productsType = params.type;
+  const priceValue = useSelector((state) => state.price.priceValue);
 
   const { productsList } = props;
 
   const products = productsList.filter(
-    (product) => product.source === `${productsType}-shoes`
+    (product) =>
+      product.gender === `${productsType}` &&
+      product.image.small !== "" &&
+      product.estimatedMarketValue <= priceValue
   );
 
   const filteredProducts = products.map((product) => (
     <ProductsItem
-      key={product.img}
-      title={product.title}
-      price={product.price}
-      source={product.source}
-      img={product.img}
+      key={product.id}
+      brand={product.brand}
+      name={product.name}
+      gender={product.gender}
+      img={product.image.thumbnail}
+      imgSmall={product.image.small}
+      price={product.estimatedMarketValue}
+      retailPrice={product.retailPrice}
+      color={product.colorway}
+      realeaseDate={product.releaseDate}
+      silhouette={product.silhouette}
+      story={product.story}
     />
   ));
 
@@ -33,24 +48,24 @@ const Store = (props) => {
     storeHeader = (
       <p className={classes.storeHeader}>Women's Trainers & Shoes</p>
     );
-  if (productsType === "kids")
+  if (productsType === "infant")
     storeHeader = (
       <p className={classes.storeHeader}>Kids's Trainers & Shoes</p>
     );
 
   return (
-    <Layout>
-      <div className={classes.productsHeader}>
-        {storeHeader}
-        <div className={classes.resultSection}>
-          {storeHeader}
-          <p className={classes["number-of-results"]}>
-            - {numberOfResults} results
-          </p>
-        </div>
-      </div>
-      <div className={classes.productsContainer}>{filteredProducts}</div>
-    </Layout>
+    <Fragment>
+      <Layout>
+        <ProductsHeader
+          storeHeader={storeHeader}
+          numberOfResults={numberOfResults}
+        />
+      </Layout>
+      <FilterBar />
+      <Layout>
+        <div className={classes.productsContainer}>{filteredProducts}</div>
+      </Layout>
+    </Fragment>
   );
 };
 

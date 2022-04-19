@@ -1,33 +1,3 @@
-div.productsHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-div.productsHeader .resultSection {
-  text-align: right;
-}
-
-div.productsHeader .resultSection p.storeHeader {
-  font-size: 14px;
-  font-weight: 400;
-  color: #7a7a7a;
-}
-
-div.productsHeader .resultSection p.number-of-results {
-  margin: -10px 0;
-  padding: 0;
-  font-family: "Roboto";
-  font-size: 14px;
-}
-
-p.storeHeader {
-  font-family: "Roboto";
-  font-size: 32px;
-  color: #333;
-  font-weight: 800;
-}
-
 div.productsContainer {
   width: 100%;
   height: 100%;

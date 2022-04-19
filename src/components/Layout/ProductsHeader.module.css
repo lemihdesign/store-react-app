@@ -1,0 +1,30 @@
+div.products-header {
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto";
+  font-size: 32px;
+  color: #333;
+  font-weight: 800;
+  margin-top: 115px;
+}
+
+div.products-header .results-section {
+  text-align: right;
+}
+
+div.products-header .results-section p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a7a7a;
+}
+
+div.products-header .results-section p.number-of-results {
+  margin: -10px 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}

@@ -1,7 +1,5 @@
 import classes from "./Header.module.css";
 
-import Slider from "../UI/Slider";
-
 const Header = () => {
   return (
     <div className={classes.header}>
@@ -20,7 +18,7 @@ const Header = () => {
         </div>
       </aside>
       <aside className={classes.right}>
-        <Slider />
+        <div></div>
       </aside>
     </div>
   );

@@ -9,11 +9,31 @@ div.product-box img {
   height: 400px;
 }
 
-div.product-box .product-name {
+div.product-box .product-brand {
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 800;
   color: #333;
+}
+
+div.product-box .product-name {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  color: #7a7a7a;
+  margin-top: -10px;
+}
+
+div.product-box .product-color,
+.product-silhouette {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a7a7a;
+}
+
+div.product-box .product-silhouette {
+  margin-top: -10px;
 }
 
 div.product-box .product-controls {
@@ -28,7 +48,7 @@ div.product-box .product-controls {
 div.product-box .product-price {
   font-family: "Roboto";
   font-weight: 600;
-  font-size: 14px;
+  font-size: 22px;
   color: #4b4b4b;
 }
 

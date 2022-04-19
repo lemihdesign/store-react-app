@@ -1,10 +1,22 @@
 div.navigation {
-  width: 80%;
-  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  margin: 25px auto 25px auto;
+  background-color: #fff;
+  /* border-top: 1px solid #7a7a7a; */
+  border-bottom: 1px solid #b6b6b6;
+}
+
+div.navigation-container {
+  width: 88%;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 25px auto 25px auto;
 }
 
 div.navigation nav ul {

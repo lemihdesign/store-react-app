@@ -1,0 +1,73 @@
+div.filter-bar {
+  width: 100%;
+  height: 75px;
+  border-top: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
+}
+
+div.filter-bar .filter-bar-container {
+  display: flex;
+  align-items: center;
+  width: 88%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+div.filter-bar .filter-bar-container .filter-bar-item label {
+  font-family: "Roboto";
+  font-family: 13px;
+  color: #333;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+div.filter-bar .filter-bar-container .filter-bar-item label span {
+  font-weight: 800;
+}
+
+div.filter-bar .filter-bar-container select {
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid #7a7a7a;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+div.filter-bar .filter-bar-container select:focus {
+  background-color: #f0f0f0;
+}
+
+div.filter-bar .filter-bar-container option {
+  background-color: #fff;
+  border: 1px solid #7a7a7a;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+div.filter-bar .filter-bar-container div.filter-bar-item {
+  display: flex;
+  align-items: center;
+}
+
+div.filter-bar .filter-bar-container div.filter-bar-item:nth-child(2) {
+  margin-left: 25px;
+}
+
+div.filter-bar .filter-bar-container input {
+  -webkit-appearance: none;
+  height: 2px;
+  width: 100px;
+  background-color: #7a7a7a;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+div.filter-bar .filter-bar-container input::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  display: block;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #7a7a7a;
+}

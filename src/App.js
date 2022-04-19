@@ -12,16 +12,19 @@ function App() {
   const location = useLocation();
   const pathname = location.pathname;
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Host": "nike-products.p.rapidapi.com",
-      "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-    },
-  };
-
   useEffect(() => {
-    fetch("https://nike-products.p.rapidapi.com/shoes", options)
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
+        "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+      },
+    };
+
+    fetch(
+      "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100",
+      options
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -31,7 +34,8 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        setProducts(data);
+        console.log(data.results);
+        setProducts(data.results);
       })
       .catch((err) => {
         console.log(err.message);
