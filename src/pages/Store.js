@@ -13,6 +13,7 @@ const Store = (props) => {
   const productsType = params.type;
   const priceValue = useSelector((state) => state.price.priceValue);
   const brandValue = useSelector((state) => state.brand.brand);
+  const loadingStatus = useSelector((state) => state.loading.isLoading);
 
   const { productsList } = props;
 
@@ -70,7 +71,10 @@ const Store = (props) => {
       </Layout>
       <FilterBar prices={prices} brands={brands} />
       <Layout>
-        <div className={classes.productsContainer}>{filteredProducts}</div>
+        {loadingStatus && <p>Loading...</p>}
+        {!loadingStatus && (
+          <div className={classes.productsContainer}>{filteredProducts}</div>
+        )}
       </Layout>
     </Fragment>
   );

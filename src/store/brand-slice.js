@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialBrandState = { brand: "" };
+const initialBrandState = { brand: "Nike" };
 
 const brandSlice = createSlice({
   name: "brand",
