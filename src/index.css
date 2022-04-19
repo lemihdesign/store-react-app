@@ -3,12 +3,3 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-main.landing-page {
-  background: rgb(227, 244, 243);
-  background: linear-gradient(
-    111deg,
-    rgba(227, 244, 243, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-}

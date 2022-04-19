@@ -1,4 +1,5 @@
 import classes from "./Header.module.css";
+import image3 from "../../assets/images/slider3.jpg";
 
 const Header = () => {
   return (
@@ -18,7 +19,9 @@ const Header = () => {
         </div>
       </aside>
       <aside className={classes.right}>
-        <div></div>
+        <div>
+          <img src={image3} alt="Slider" />
+        </div>
       </aside>
     </div>
   );

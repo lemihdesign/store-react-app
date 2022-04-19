@@ -2,16 +2,19 @@ import icon from "../../assets/bag.png";
 
 import classes from "./CartIcon.module.css";
 
-const CartIcon = () => {
+const CartIcon = (props) => {
   return (
-    <div className={classes["cart-icon-container"]}>
+    <button
+      onClick={props.onShowCart}
+      className={classes["cart-icon-container"]}
+    >
       <div className={classes.count}>
         <p>10</p>
       </div>
       <div className={classes["cart-icon"]}>
         <img src={icon} alt="Cart Icon" />
       </div>
-    </div>
+    </button>
   );
 };
 
