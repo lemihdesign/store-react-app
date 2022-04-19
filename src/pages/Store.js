@@ -12,6 +12,7 @@ const Store = (props) => {
   const params = useParams();
   const productsType = params.type;
   const priceValue = useSelector((state) => state.price.priceValue);
+  const brandValue = useSelector((state) => state.brand.brand);
 
   const { productsList } = props;
 
@@ -19,7 +20,9 @@ const Store = (props) => {
     (product) =>
       product.gender === `${productsType}` &&
       product.image.small !== "" &&
-      product.estimatedMarketValue <= priceValue
+      product.estimatedMarketValue <= priceValue &&
+      product.estimatedMarketValue !== 0 &&
+      product.brand === brandValue
   );
 
   const filteredProducts = products.map((product) => (
@@ -38,6 +41,10 @@ const Store = (props) => {
       story={product.story}
     />
   ));
+
+  const prices = products.map((product) => product.estimatedMarketValue);
+
+  const brands = productsList.map((product) => product.brand);
 
   const numberOfResults = filteredProducts.length;
 
@@ -61,7 +68,7 @@ const Store = (props) => {
           numberOfResults={numberOfResults}
         />
       </Layout>
-      <FilterBar />
+      <FilterBar prices={prices} brands={brands} />
       <Layout>
         <div className={classes.productsContainer}>{filteredProducts}</div>
       </Layout>

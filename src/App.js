@@ -34,7 +34,6 @@ function App() {
         return response.json();
       })
       .then((data) => {
-        console.log(data.results);
         setProducts(data.results);
       })
       .catch((err) => {
