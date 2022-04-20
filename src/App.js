@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Store from "./pages/Store";
 import { loadingActions } from "./store/loading-slice";
 import { cartActions } from "./store/cart-slice";
+import Footer from "./components/UI/Footer";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -77,6 +78,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </>
   );
 }
