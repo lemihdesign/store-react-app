@@ -1,0 +1,61 @@
+h2.cart-header {
+  font-family: "Roboto";
+  font-size: 20px;
+  color: #333;
+  font-weight: 800;
+  padding: 5px 40px;
+}
+ul.cartList {
+  width: 90%;
+  max-height: 250px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 10px;
+}
+
+div.prices-details {
+  font-family: "Roboto";
+  width: 90%;
+  padding: 25px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+div.prices-details span {
+  display: block;
+  color: #333;
+  padding: 5px 0;
+}
+
+div.prices-details span.pricesSpan {
+  display: inline-block;
+  font-weight: 800;
+}
+
+div.total-amount {
+  font-family: "Roboto";
+  width: 90%;
+  padding: 25px;
+}
+
+div.total-amount .pricesSpan {
+  font-size: 23px;
+  font-weight: 800;
+  color: #333;
+}
+
+div.action {
+  width: 96%;
+  display: flex;
+  justify-content: center;
+}
+
+div.action button {
+  width: 98%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #242424;
+  border: none;
+  color: #fff;
+  margin-top: 50px;
+  cursor: pointer;
+}

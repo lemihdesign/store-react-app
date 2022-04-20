@@ -31,6 +31,7 @@ const Store = (props) => {
   const filteredProducts = products.map((product) => (
     <ProductsItem
       key={product.id}
+      id={product.id}
       brand={product.brand}
       name={product.name}
       gender={product.gender}
