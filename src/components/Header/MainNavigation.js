@@ -25,7 +25,7 @@ const MainNavigation = (props) => {
               <Link to="/store/women">Women</Link>
             </li>
             <li>
-              <Link to="/store/infant">Kids</Link>
+              <Link to="/store/child">Kids</Link>
             </li>
           </ul>
         </nav>

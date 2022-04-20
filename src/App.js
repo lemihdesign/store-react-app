@@ -21,17 +21,14 @@ function App() {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
+        "X-RapidAPI-Host": "v1-sneakers.p.rapidapi.com",
         "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
       },
     };
 
     dispatch(loadingActions.loading(true));
 
-    fetch(
-      "https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100",
-      options
-    )
+    fetch("https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=100", options)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -42,6 +39,7 @@ function App() {
       })
       .then((data) => {
         setProducts(data.results);
+        console.log(data.results);
         dispatch(loadingActions.loading(false));
       })
       .catch((err) => {

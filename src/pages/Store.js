@@ -19,12 +19,14 @@ const Store = (props) => {
 
   const { productsList } = props;
 
+  console.log(productsList);
+
   const products = productsList.filter(
     (product) =>
       product.gender === `${productsType}` &&
-      product.image.small !== "" &&
-      product.estimatedMarketValue <= priceValue &&
-      product.estimatedMarketValue !== 0 &&
+      product.media.smallImageUrl !== "" &&
+      product.retailPrice <= priceValue &&
+      product.retailPrice !== 0 &&
       product.brand === brandValue
   );
 
@@ -35,14 +37,13 @@ const Store = (props) => {
       brand={product.brand}
       name={product.name}
       gender={product.gender}
-      img={product.image.thumbnail}
-      imgSmall={product.image.small}
-      price={product.estimatedMarketValue}
-      retailPrice={product.retailPrice}
+      img={product.media.thumbUrl}
+      imgSmall={product.media.smallImageUrl}
+      price={product.retailPrice}
       color={product.colorway}
       realeaseDate={product.releaseDate}
       silhouette={product.silhouette}
-      story={product.story}
+      title={product.title}
     />
   ));
 

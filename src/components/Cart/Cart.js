@@ -31,16 +31,27 @@ const Cart = (props) => {
             ${cartTotalAmount.toFixed(2)}
           </span>
         </span>
-        <span>
-          Shipping:{" "}
-          <span className={classes.pricesSpan}>${shippingCost.toFixed(2)}</span>
-        </span>
+        {items.length > 0 && (
+          <span>
+            Shipping:{" "}
+            <span className={classes.pricesSpan}>
+              ${shippingCost.toFixed(2)}
+            </span>
+          </span>
+        )}
       </div>
       <div className={classes["total-amount"]}>
         <span>Total </span>
-        <span className={classes.pricesSpan}>
-          ${(shippingCost + cartTotalAmount).toFixed(2)}
-        </span>
+        {items.length > 0 && (
+          <span className={classes.pricesSpan}>
+            ${(shippingCost + cartTotalAmount).toFixed(2)}
+          </span>
+        )}
+        {items.length === 0 && (
+          <span className={classes.pricesSpan}>
+            ${cartTotalAmount.toFixed(2)}
+          </span>
+        )}
       </div>
       <div className={classes.action}>
         {/* <button onClick={onHideCart}>Close</button> */}
