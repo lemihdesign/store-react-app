@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import FilterBar from "../components/Layout/FilterBar";
 import Layout from "../components/Layout/Layout";
 import ProductsHeader from "../components/Layout/ProductsHeader";
@@ -8,11 +8,9 @@ import ProductsItem from "../components/Products/ProductsItem";
 
 import classes from "./Store.module.css";
 import Cart from "../components/Cart/Cart";
-import { cartActions } from "../store/cart-slice";
 
 const Store = (props) => {
   const params = useParams();
-  const dispatch = useDispatch();
   const productsType = params.type;
   const priceValue = useSelector((state) => state.price.priceValue);
   const brandValue = useSelector((state) => state.brand.brand);
@@ -53,10 +51,6 @@ const Store = (props) => {
 
   const numberOfResults = filteredProducts.length;
 
-  const hideCartHandler = () => {
-    dispatch(cartActions.showCart(false));
-  };
-
   let storeHeader;
   if (productsType === "men")
     storeHeader = <p className={classes.storeHeader}>Men's Trainers & Shoes</p>;
@@ -72,7 +66,7 @@ const Store = (props) => {
   return (
     <Fragment>
       <Layout>
-        {cartIsShown && <Cart onHideCart={hideCartHandler} />}
+        {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
         <ProductsHeader
           storeHeader={storeHeader}
           numberOfResults={numberOfResults}

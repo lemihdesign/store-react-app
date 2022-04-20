@@ -1,20 +1,12 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 import logoImage from "../../assets/logo2.png";
 
 import CartIcon from "../Cart/CartIcon";
 
 import classes from "./MainNavigation.module.css";
-import { cartActions } from "../../store/cart-slice";
 
-const MainNavigation = () => {
-  const dispatch = useDispatch();
-
-  const showCartHandler = () => {
-    dispatch(cartActions.showCart(true));
-  };
-
+const MainNavigation = (props) => {
   return (
     <div className={classes.navigation}>
       <div className={classes["navigation-container"]}>
@@ -38,7 +30,7 @@ const MainNavigation = () => {
           </ul>
         </nav>
         <div className={classes.cart}>
-          <CartIcon onShowCart={showCartHandler} />
+          <CartIcon onShowCart={props.onShowCartHandler} />
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import TopBar from "./components/UI/TopBar";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import { loadingActions } from "./store/loading-slice";
+import { cartActions } from "./store/cart-slice";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -47,16 +48,32 @@ function App() {
       });
   }, [dispatch]);
 
+  const showCartHandler = () => {
+    dispatch(cartActions.showCart(true));
+  };
+
+  const hideCartHandler = () => {
+    dispatch(cartActions.showCart(false));
+  };
+
   return (
     <>
       <TopBar />
-      <MainNavigation />
+      <MainNavigation onShowCartHandler={showCartHandler} />
       <main className={pathname === "/" ? "landing-page" : ""}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home onHideCartHandler={hideCartHandler} />}
+          />
           <Route
             path="/store/:type"
-            element={<Store productsList={products} />}
+            element={
+              <Store
+                productsList={products}
+                onHideCartHandler={hideCartHandler}
+              />
+            }
           />
         </Routes>
       </main>
