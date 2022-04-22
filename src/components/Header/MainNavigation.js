@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import logoImage from "../../assets/logo2.png";
@@ -7,8 +8,20 @@ import CartIcon from "../Cart/CartIcon";
 import classes from "./MainNavigation.module.css";
 
 const MainNavigation = (props) => {
+  const [fixed, setFixed] = useState(false);
+
+  const changeBarPositionHandler = () => {
+    if (window.scrollY >= 230) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBarPositionHandler);
+
   return (
-    <div className={classes.navigation}>
+    <div className={fixed ? classes["navigation-fixed"] : classes.navigation}>
       <div className={classes["navigation-container"]}>
         <div className={classes["navigation-logo"]}>
           <img src={logoImage} alt="Logo" />

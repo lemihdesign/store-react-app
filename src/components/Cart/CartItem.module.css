@@ -64,7 +64,13 @@ li.cart-item .product-count-input button.control-btns {
   margin: 0 10px;
   background-color: #fff;
   border: 1px solid #dbdbdb;
+  border-radius: 3px;
   cursor: pointer;
+  transition: 0.4s;
+}
+
+li.cart-item .product-count-input button.control-btns:hover {
+  background-color: #f3f3f3;
 }
 
 li.cart-item .product-count-input input {
@@ -72,6 +78,7 @@ li.cart-item .product-count-input input {
   height: 30px;
   background-color: #fff;
   border: 1px solid #dbdbdb;
+  border-radius: 3px;
   appearance: none;
   text-align: center;
 }

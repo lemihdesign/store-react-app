@@ -1,12 +1,11 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./FilterBar.module.css";
 import { priceActions } from "../../store/price-slice";
 import { brandActions } from "../../store/brand-slice";
-import { useParams } from "react-router-dom";
 
 const FilterBar = (props) => {
-  const params = useParams();
-  const productsType = params.type;
+  const [fixed, setFixed] = useState(false);
   const dispatch = useDispatch();
   const priceValue = useSelector((state) => state.price.priceValue);
   const brandValue = useSelector((state) => state.brand.brand);
@@ -19,6 +18,16 @@ const FilterBar = (props) => {
     dispatch(brandActions.changeBrand(e.target.value));
   };
 
+  const changeBarPositionHandler = () => {
+    if (window.scrollY >= 230) {
+      setFixed(true);
+    } else {
+      setFixed(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBarPositionHandler);
+
   const minPriceForFilter = Math.min(...props.prices);
 
   const brandOptions = props.brands;
@@ -27,7 +36,9 @@ const FilterBar = (props) => {
   ));
 
   return (
-    <div className={classes["filter-bar"]}>
+    <div
+      className={fixed ? classes["filter-bar-fixed"] : classes["filter-bar"]}
+    >
       <div className={classes["filter-bar-container"]}>
         <div className={classes["filter-bar-item"]}>
           <label htmlFor="brand">Brand: </label>

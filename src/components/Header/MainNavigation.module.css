@@ -7,15 +7,30 @@ div.navigation {
   margin: 25px auto 25px auto;
   background-color: #fff;
   border-bottom: 1px solid #dddd;
+  z-index: 10;
+  transition: 0.4s;
 }
 
-div.navigation-container {
+div.navigation-fixed {
+  position: fixed;
+  top: -35px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  margin: 25px auto 25px auto;
+  background-color: #fff;
+  border-bottom: 1px solid #dddd;
+  z-index: 10;
+}
+
+div.navigation div.navigation-container {
   width: 88%;
   height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: #fff; */
 }
 
 div.navigation nav ul {
@@ -50,6 +65,53 @@ div.navigation nav ul li:hover:after {
 }
 
 div.navigation nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* //// */
+
+div.navigation-fixed div.navigation-container {
+  width: 88%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #fff; */
+}
+div.navigation-fixed nav ul {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  text-transform: uppercase;
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+div.navigation-fixed nav ul li {
+  letter-spacing: 1px;
+  cursor: pointer;
+  height: 48px;
+  /* width: 0px; */
+  line-height: 48px;
+  transition: 0.4s;
+}
+
+div.navigation-fixed nav ul li:after {
+  display: block;
+  content: "";
+  border-bottom: solid 1px #000;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+div.navigation-fixed nav ul li:hover:after {
+  transform: scaleX(1);
+}
+
+div.navigation-fixed nav ul li a {
   text-decoration: none;
   color: #000;
 }

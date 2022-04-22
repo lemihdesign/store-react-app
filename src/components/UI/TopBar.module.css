@@ -8,6 +8,11 @@ div.bar {
   justify-content: flex-end;
   align-items: center;
   background-color: #fff;
+  z-index: 10;
+}
+
+div.bar-disabled {
+  display: none;
 }
 
 div.bar ul li {

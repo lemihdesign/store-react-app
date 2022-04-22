@@ -1,10 +1,17 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import classes from "./ProductsItem.module.css";
 
 const ProductsItem = (props) => {
   const { brand, name, color, imgSmall, price, id } = props;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   const addItemToCartHandler = () => {
     const item = {
@@ -20,7 +27,7 @@ const ProductsItem = (props) => {
   };
 
   return (
-    <div className={classes["product-box"]}>
+    <div data-aos="fade-up" className={classes["product-box"]}>
       <div className={classes["product-box-label"]}>
         <span className={classes.label}></span>
         <div className={classes.info}>
