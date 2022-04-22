@@ -36,7 +36,8 @@ const cartSlice = createSlice({
 
       state.items = newItemsArray;
 
-      state.totalAmount = state.totalAmount - action.payload.price;
+      state.totalAmount =
+        state.totalAmount - action.payload.price * action.payload.quantity;
     },
     increaseNumberOfItems(state, action) {
       const exsitingItemIndex = state.items.findIndex(
