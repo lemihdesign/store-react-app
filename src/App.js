@@ -39,7 +39,6 @@ function App() {
       })
       .then((data) => {
         setProducts(data.results);
-        console.log(data.results);
         dispatch(loadingActions.loading(false));
       })
       .catch((err) => {

@@ -5,19 +5,21 @@ import CartItem from "./CartItem";
 
 const Cart = (props) => {
   const { onHideCart } = props;
-  const items = useSelector((state) => state.cart.items);
+  let items = useSelector((state) => state.cart.items);
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
+  const hasItems = items.length > 0;
 
-  console.log(items);
   const cartItems = items.map((item) => (
     <CartItem
+      key={item.id}
       id={item.id}
       brand={item.brand}
       name={item.name}
       price={item.price}
       color={item.color}
       image={item.imgSmall}
+      quantity={item.quantity}
     />
   ));
   return (
@@ -31,7 +33,7 @@ const Cart = (props) => {
             ${cartTotalAmount.toFixed(2)}
           </span>
         </span>
-        {items.length > 0 && (
+        {hasItems && (
           <span>
             Shipping:{" "}
             <span className={classes.pricesSpan}>
@@ -42,7 +44,7 @@ const Cart = (props) => {
       </div>
       <div className={classes["total-amount"]}>
         <span>Total </span>
-        {items.length > 0 && (
+        {hasItems && (
           <span className={classes.pricesSpan}>
             ${(shippingCost + cartTotalAmount).toFixed(2)}
           </span>
@@ -55,7 +57,7 @@ const Cart = (props) => {
       </div>
       <div className={classes.action}>
         {/* <button onClick={onHideCart}>Close</button> */}
-        <button>Place Order</button>
+        {hasItems && <button>Place Order</button>}
       </div>
     </Modal>
   );

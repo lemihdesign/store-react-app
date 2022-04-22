@@ -1,9 +1,31 @@
-div.product-box img {
-  width: 400px;
-  height: 400px;
+div.product-box {
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+  flex: 1 12%;
+}
+div.product-box .product-image img {
+  max-width: 250px;
+  max-height: 250px;
 }
 
-div.product-box .product-brand {
+div.product-box .product-info {
+  margin-top: auto;
+}
+
+@media (max-width: 920px) {
+  div.product-box {
+    flex: 1 21%;
+  }
+}
+
+@media (max-width: 600px) {
+  div.product-box {
+    flex: 1 46%;
+  }
+}
+
+/* div.product-box .product-brand {
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 800;
@@ -51,4 +73,4 @@ div.product-box .add-to-cart-btn {
   border: none;
   cursor: pointer;
   text-decoration: underline;
-}
+} */

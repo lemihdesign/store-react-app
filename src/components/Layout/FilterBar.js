@@ -2,8 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import classes from "./FilterBar.module.css";
 import { priceActions } from "../../store/price-slice";
 import { brandActions } from "../../store/brand-slice";
+import { useParams } from "react-router-dom";
 
 const FilterBar = (props) => {
+  const params = useParams();
+  const productsType = params.type;
   const dispatch = useDispatch();
   const priceValue = useSelector((state) => state.price.priceValue);
   const brandValue = useSelector((state) => state.brand.brand);
@@ -22,7 +25,6 @@ const FilterBar = (props) => {
   const uniqueBrandOptions = [...new Set(brandOptions)].map((brand) => (
     <option value={brand}>{brand}</option>
   ));
-  // console.log(brandOptions);
 
   return (
     <div className={classes["filter-bar"]}>

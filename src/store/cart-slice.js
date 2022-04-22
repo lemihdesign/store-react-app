@@ -1,7 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {
+  createImmutableStateInvariantMiddleware,
+  createSlice,
+} from "@reduxjs/toolkit";
 const initialCartState = {
   cartIsShown: false,
   items: [],
+  numberOfItems: 0,
   totalAmount: 0,
   shippingCost: 8,
 };
@@ -14,9 +18,57 @@ const cartSlice = createSlice({
       state.cartIsShown = action.payload;
     },
     addItem(state, action) {
-      state.items.push(action.payload);
+      const exsitingItemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      if (exsitingItemIndex >= 0) {
+        state.items[exsitingItemIndex].quantity++;
+      } else {
+        const tempProduct = { ...action.payload, quantity: 1 };
+        state.items.push(tempProduct);
+      }
     },
-    removeItem(state, action) {},
+    removeItem(state, action) {
+      const newItemsArray = state.items.filter(
+        (item) => item.id !== action.payload.id
+      );
+
+      state.items = newItemsArray;
+
+      state.totalAmount = state.totalAmount - action.payload.price;
+    },
+    increaseNumberOfItems(state, action) {
+      const exsitingItemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      if (exsitingItemIndex >= 0) {
+        state.items[exsitingItemIndex].quantity++;
+        state.totalAmount = state.totalAmount + action.payload.price;
+      }
+    },
+    decreaseNumberOfItems(state, action) {
+      const exsitingItemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      if (exsitingItemIndex >= 0) {
+        if (state.items[exsitingItemIndex].quantity > 1) {
+          state.items[exsitingItemIndex].quantity--;
+          state.totalAmount = state.totalAmount - action.payload.price;
+        } else {
+          const newItemsArray = state.items.filter(
+            (item) => item.id !== action.payload.id
+          );
+
+          state.items = newItemsArray;
+
+          state.totalAmount =
+            state.totalAmount - action.payload.price * action.payload.quantity;
+        }
+      }
+    },
     increaseTotalAmount(state, action) {
       state.totalAmount = state.totalAmount + action.payload;
     },

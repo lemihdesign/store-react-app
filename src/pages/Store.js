@@ -19,8 +19,6 @@ const Store = (props) => {
 
   const { productsList } = props;
 
-  console.log(productsList);
-
   const products = productsList.filter(
     (product) =>
       product.gender === `${productsType}` &&
@@ -47,9 +45,12 @@ const Store = (props) => {
     />
   ));
 
-  const prices = products.map((product) => product.estimatedMarketValue);
+  const prices = products.map((product) => product.retailPrice);
 
-  const brands = productsList.map((product) => product.brand);
+  const filteredBrands = productsList.filter(
+    (brand) => brand.gender === `${productsType}`
+  );
+  const brands = filteredBrands.map((product) => product.brand);
 
   const numberOfResults = filteredProducts.length;
 
