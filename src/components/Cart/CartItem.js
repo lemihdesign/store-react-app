@@ -50,13 +50,32 @@ const CartItem = (props) => {
           <p className={classes.brand}>{brand}</p>
           <p className={classes.name}>{name}</p>
           <p className={classes.price}>${price.toFixed(2)}</p>
-          <button onClick={removeItemFromCartHandler}>Remove</button>
         </div>
       </div>
       <div className={classes["product-count-input"]}>
-        <button onClick={decreaseNumberOfItemsHandler}>-</button>
-        <input type="text" value={itemsQuantity} />
-        <button onClick={increaseNumberOfItemsHandler}>+</button>
+        <div>
+          <button
+            className={classes["control-btns"]}
+            onClick={decreaseNumberOfItemsHandler}
+          >
+            -
+          </button>
+          <input type="text" value={itemsQuantity} />
+          <button
+            className={classes["control-btns"]}
+            onClick={increaseNumberOfItemsHandler}
+          >
+            +
+          </button>
+        </div>
+        <div>
+          <button
+            className={classes["remove-item-btn"]}
+            onClick={removeItemFromCartHandler}
+          >
+            Remove
+          </button>
+        </div>
       </div>
     </li>
   );

@@ -52,7 +52,13 @@ li.cart-item .product-details .price {
   margin-top: 15px;
 }
 
-li.cart-item .product-count-input button {
+li.cart-item .product-count-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li.cart-item .product-count-input button.control-btns {
   width: 30px;
   height: 30px;
   margin: 0 10px;
@@ -68,4 +74,12 @@ li.cart-item .product-count-input input {
   border: 1px solid #dbdbdb;
   appearance: none;
   text-align: center;
+}
+
+li.cart-item .remove-item-btn {
+  background-color: transparent;
+  border: none;
+  color: #7a7a7a;
+  cursor: pointer;
+  margin-top: 15px;
 }
