@@ -21,21 +21,26 @@ const ProductsItem = (props) => {
 
   return (
     <div className={classes["product-box"]}>
+      <div className={classes["product-box-label"]}>
+        <span className={classes.label}></span>
+        <div className={classes.info}>
+          <p className={classes["product-name"]}>{name}</p>
+          <p className={classes["product-brand"]}>{brand}</p>
+        </div>
+      </div>
       <div className={classes["product-image"]}>
         <img src={imgSmall} alt="Shoe" />
       </div>
-      <div className={classes["product-info"]}>
-        <p className={classes["product-brand"]}>{brand}</p>
-        <p className={classes["product-name"]}>{name}</p>
-        <p className={classes["product-color"]}>Colors: {color}</p>
+      <div className={classes["product-price-box"]}>
+        <p>Price</p>
+        <p className={classes["product-price"]}>$ {price}</p>
       </div>
       <div className={classes["product-controls"]}>
-        <p className={classes["product-price"]}>${price}</p>
         <button
           onClick={addItemToCartHandler}
           className={classes["add-to-cart-btn"]}
         >
-          Add To Cart
+          <i class="fa-solid fa-cart-arrow-down"></i>
         </button>
       </div>
     </div>
