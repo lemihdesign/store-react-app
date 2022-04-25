@@ -1,7 +1,4 @@
-import {
-  createImmutableStateInvariantMiddleware,
-  createSlice,
-} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 const initialCartState = {
   cartIsShown: false,
   items: [],

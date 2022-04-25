@@ -44,7 +44,7 @@ div.filter-bar .filter-bar-container select {
   padding: 5px;
   background-color: transparent;
   border: 1px solid #7a7a7a;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   cursor: pointer;
 }
 
@@ -68,7 +68,26 @@ div.filter-bar .filter-bar-container div.filter-bar-item:nth-child(2) {
   margin-left: 25px;
 }
 
-div.filter-bar .filter-bar-container input {
+div.filter-bar .filter-bar-container input[type="text"] {
+  padding: 6px;
+  background-color: transparent;
+  border: 1px solid #7a7a7a;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-style: 16px;
+  color: #131200;
+}
+
+div.filter-bar .filter-bar-container input[type="text"]::placeholder {
+  color: #131200;
+  font-family: "Roboto";
+}
+
+div.filter-bar .filter-bar-container input[type="text"]:focus {
+  background-color: #f0f0f0;
+}
+
+div.filter-bar .filter-bar-container input[type="range"] {
   -webkit-appearance: none;
   height: 2px;
   width: 100px;
@@ -77,7 +96,7 @@ div.filter-bar .filter-bar-container input {
   cursor: pointer;
 }
 
-div.filter-bar .filter-bar-container input::-webkit-slider-thumb {
+div.filter-bar .filter-bar-container input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 15px;
   height: 15px;
@@ -110,10 +129,10 @@ div.filter-bar-fixed .filter-bar-container .filter-bar-item label span {
 }
 
 div.filter-bar-fixed .filter-bar-container select {
-  padding: 5px;
+  padding: 10px;
   background-color: transparent;
   border: 1px solid #7a7a7a;
-  border-radius: 10px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -137,7 +156,7 @@ div.filter-bar-fixed .filter-bar-container div.filter-bar-item:nth-child(2) {
   margin-left: 25px;
 }
 
-div.filter-bar-fixed .filter-bar-container input {
+div.filter-bar-fixed .filter-bar-container input[type="range"] {
   -webkit-appearance: none;
   height: 2px;
   width: 100px;
@@ -146,7 +165,9 @@ div.filter-bar-fixed .filter-bar-container input {
   cursor: pointer;
 }
 
-div.filter-bar-fixed .filter-bar-container input::-webkit-slider-thumb {
+div.filter-bar-fixed
+  .filter-bar-container
+  input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 15px;
   height: 15px;
@@ -154,4 +175,24 @@ div.filter-bar-fixed .filter-bar-container input::-webkit-slider-thumb {
   background-color: #fff;
   border-radius: 50%;
   border: 2px solid #7a7a7a;
+}
+
+div.filter-bar-fixed .filter-bar-container input[type="text"] {
+  padding: 10px 6px;
+  background-color: transparent;
+  border: 1px solid #7a7a7a;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-style: 16px;
+  color: #131200;
+  border-radius: 3px;
+}
+
+div.filter-bar-fixed .filter-bar-container input[type="text"]::placeholder {
+  color: #131200;
+  font-family: "Roboto";
+}
+
+div.filter-bar-fixed .filter-bar-container input[type="text"]:focus {
+  background-color: #f0f0f0;
 }

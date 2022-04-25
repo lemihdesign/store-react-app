@@ -4,9 +4,10 @@ import { cartActions } from "../../store/cart-slice";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import classes from "./ProductsItem.module.css";
+import { Link } from "react-router-dom";
 
 const ProductsItem = (props) => {
-  const { brand, name, color, imgSmall, price, id } = props;
+  const { brand, name, color, imgSmall, price, id, gender } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,28 +29,30 @@ const ProductsItem = (props) => {
 
   return (
     <div data-aos="fade-up" className={classes["product-box"]}>
-      <div className={classes["product-box-label"]}>
-        <span className={classes.label}></span>
-        <div className={classes.info}>
-          <p className={classes["product-name"]}>{name}</p>
-          <p className={classes["product-brand"]}>{brand}</p>
+      <Link to={`${id}`}>
+        <div className={classes["product-box-label"]}>
+          <span className={classes.label}></span>
+          <div className={classes.info}>
+            <p className={classes["product-name"]}>{name}</p>
+            <p className={classes["product-brand"]}>{brand}</p>
+          </div>
         </div>
-      </div>
-      <div className={classes["product-image"]}>
-        <img src={imgSmall} alt="Shoe" />
-      </div>
-      <div className={classes["product-price-box"]}>
-        <p>Price</p>
-        <p className={classes["product-price"]}>$ {price}</p>
-      </div>
-      <div className={classes["product-controls"]}>
-        <button
-          onClick={addItemToCartHandler}
-          className={classes["add-to-cart-btn"]}
-        >
-          <i class="fa-solid fa-cart-arrow-down"></i>
-        </button>
-      </div>
+        <div className={classes["product-image"]}>
+          <img src={imgSmall} alt="Shoe" />
+        </div>
+        <div className={classes["product-price-box"]}>
+          <p>Price</p>
+          <p className={classes["product-price"]}>$ {price}</p>
+        </div>
+        <div className={classes["product-controls"]}>
+          <button
+            onClick={addItemToCartHandler}
+            className={classes["add-to-cart-btn"]}
+          >
+            <i className="fa-solid fa-cart-arrow-down"></i>
+          </button>
+        </div>
+      </Link>
     </div>
   );
 };

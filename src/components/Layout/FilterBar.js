@@ -41,7 +41,6 @@ const FilterBar = (props) => {
     >
       <div className={classes["filter-bar-container"]}>
         <div className={classes["filter-bar-item"]}>
-          <label htmlFor="brand">Brand: </label>
           <select
             name="brand"
             id="brand"
@@ -53,7 +52,7 @@ const FilterBar = (props) => {
         </div>
         <div className={classes["filter-bar-item"]}>
           <label htmlFor="filter-price">
-            Shop by Price: <span>${priceValue}</span>{" "}
+            <span>${priceValue}</span>{" "}
           </label>
           <input
             type="range"

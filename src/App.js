@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./App.css";
@@ -10,6 +10,7 @@ import Store from "./pages/Store";
 import { loadingActions } from "./store/loading-slice";
 import { cartActions } from "./store/cart-slice";
 import Footer from "./components/UI/Footer";
+import Product from "./pages/Product";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -55,8 +56,8 @@ function App() {
   };
 
   return (
-    <>
-      <TopBar />
+    <Fragment>
+      {/* <TopBar /> */}
       <MainNavigation onShowCartHandler={showCartHandler} />
       <main className={pathname === "/" ? "landing-page" : ""}>
         <Routes>
@@ -73,10 +74,14 @@ function App() {
               />
             }
           />
+          <Route
+            path="/store/:type/:id"
+            element={<Product productsList={products} />}
+          />
         </Routes>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 }
 

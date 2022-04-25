@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import logoImage from "../../assets/logo2.png";
 
@@ -21,7 +21,7 @@ const MainNavigation = (props) => {
   window.addEventListener("scroll", changeBarPositionHandler);
 
   return (
-    <div className={fixed ? classes["navigation-fixed"] : classes.navigation}>
+    <div className={classes.navigation}>
       <div className={classes["navigation-container"]}>
         <div className={classes["navigation-logo"]}>
           <img src={logoImage} alt="Logo" />
@@ -29,16 +29,36 @@ const MainNavigation = (props) => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={(navData) => (navData.isActive ? "activeLink" : "")}
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/store/men">Men</Link>
+              <NavLink
+                className={(navData) => (navData.isActive ? "activeLink" : "")}
+                to="/store/men"
+              >
+                Men
+              </NavLink>
             </li>
             <li>
-              <Link to="/store/women">Women</Link>
+              <NavLink
+                className={(navData) => (navData.isActive ? "activeLink" : "")}
+                to="/store/women"
+              >
+                Women
+              </NavLink>
             </li>
             <li>
-              <Link to="/store/child">Kids</Link>
+              <NavLink
+                className={(navData) => (navData.isActive ? "activeLink" : "")}
+                to="/store/child"
+              >
+                Kids
+              </NavLink>
             </li>
           </ul>
         </nav>

@@ -17,55 +17,72 @@ div.header aside.left p {
 div.header aside.left p.main-bold {
   font-family: "Roboto";
   font-weight: 800;
-  font-size: 64px;
+  font-size: 164px;
   letter-spacing: 2px;
-  margin-top: 150px;
-  background: -webkit-linear-gradient(
-    42deg,
-    rgb(247, 42, 230),
-    rgb(7, 139, 247)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-top: 200px;
+  color: #131200;
 }
 
 div.header aside.left p.main-normal {
+  display: inline-block;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 64px;
-  color: #333;
+  color: #131200;
   letter-spacing: 2px;
+  border-bottom: 4px solid #89b90f;
+  padding-right: 10px;
+}
+
+div.header aside.left p.main-normal span {
+  position: absolute;
+  font-family: "Roboto";
+  font-weight: 800;
+  font-size: 64px;
+  background-color: #89b90f;
+  color: #fff;
+  letter-spacing: 2px;
+  transform: skew(-5deg);
+  margin-left: 10px;
+  margin-top: 4px;
+  padding: 0 10px;
 }
 
 div.header aside.left p.main-bold-year {
   font-family: "Roboto";
   font-weight: 800;
   font-size: 64px;
-  color: #333;
+  color: #131200;
   letter-spacing: 2px;
 }
 
 div.header aside.left p.collection-description {
   font-family: "Roboto";
-  font-weight: 400;
-  font-size: 14px;
-  color: #333;
-  width: 400px;
-  margin-top: 25px;
+  /* font-weight: 600; */
+  font-size: 16px;
+  color: #494949;
+  width: 600px;
+  margin-top: 50px;
+}
+
+div.header aside.left p.collection-description span {
+  color: #131200;
+  font-weight: 600;
 }
 
 div.header aside.left button.shop-now-btn {
   padding: 10px;
   width: 150px;
-  background-color: rgb(19, 19, 19);
-  color: rgb(238, 238, 238);
+  background-color: #b3e140;
+  color: #131200;
   border: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-family: "Roboto";
   font-size: 14px;
   cursor: pointer;
   margin-top: 25px;
   transition: 0.4s;
+  font-weight: 600;
 }
 
 div.header aside.left button.shop-now-btn:hover {
@@ -73,12 +90,14 @@ div.header aside.left button.shop-now-btn:hover {
 }
 
 div.header aside.right {
+  position: relative;
   width: 50%;
   height: 100%;
 }
 
 div.header aside.right img {
-  margin-top: 150px;
+  margin-top: 50px;
   width: 90%;
   height: 100%;
+  border-radius: 20px;
 }
