@@ -8,16 +8,19 @@ import image4 from "../../assets/logos/usama-akram-s-gYAbQToXk-unsplash.jpg";
 const NewCollection = () => {
   return (
     <div className={classes.collections}>
-      <h1>New Collection</h1>
+      <h1>
+        Check <span>The Latest</span> Collection
+      </h1>
       <p>
-        Find your shoes from our various collections. Here shoes are endless and
-        profit is also endless.
+        Our latest collection is aimed at people who value comfort and style.
+        Each product is tailored to provide the best experiences during everyday
+        use.
       </p>
-      <div className={classes["collection-container"]}>
-        <img src={image1} alt="shoe" />
-        <img src={image2} alt="shoe" />
-        <img src={image3} alt="shoe" />
-        <img src={image4} alt="shoe" />
+      <div className={classes["collections-container"]}>
+        <img src={image1} alt="" />
+        <img src={image2} alt="" />
+        <img src={image3} alt="" />
+        <img src={image4} alt="" />
       </div>
     </div>
   );

@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 import logoImage from "../../assets/logo2.png";
 
 import CartIcon from "../Cart/CartIcon";
+import Hamburger from "../UI/Hamburger";
 
 import classes from "./MainNavigation.module.css";
 
 const MainNavigation = (props) => {
   const [fixed, setFixed] = useState(false);
+  const [showLinks, setShowLinks] = useState(false);
 
   const changeBarPositionHandler = () => {
     if (window.scrollY >= 230) {
@@ -20,18 +22,31 @@ const MainNavigation = (props) => {
 
   window.addEventListener("scroll", changeBarPositionHandler);
 
+  const showMenuHandler = () => {
+    setShowLinks(!showLinks);
+  };
+
+  const hideMenuHandler = () => {
+    setShowLinks(false);
+  };
+
   return (
-    <div className={classes.navigation}>
-      <div className={classes["navigation-container"]}>
-        <div className={classes["navigation-logo"]}>
+    <nav className={classes.nav}>
+      <div className={classes["nav-container"]}>
+        <div className={classes["nav-logo"]}>
           <img src={logoImage} alt="Logo" />
         </div>
-        <nav>
+        <div
+          className={
+            showLinks ? classes["nav-links-active"] : classes["nav-links"]
+          }
+        >
           <ul>
             <li>
               <NavLink
                 className={(navData) => (navData.isActive ? "activeLink" : "")}
                 to="/"
+                onClick={hideMenuHandler}
               >
                 Home
               </NavLink>
@@ -40,6 +55,7 @@ const MainNavigation = (props) => {
               <NavLink
                 className={(navData) => (navData.isActive ? "activeLink" : "")}
                 to="/store/men"
+                onClick={hideMenuHandler}
               >
                 Men
               </NavLink>
@@ -48,6 +64,7 @@ const MainNavigation = (props) => {
               <NavLink
                 className={(navData) => (navData.isActive ? "activeLink" : "")}
                 to="/store/women"
+                onClick={hideMenuHandler}
               >
                 Women
               </NavLink>
@@ -56,17 +73,21 @@ const MainNavigation = (props) => {
               <NavLink
                 className={(navData) => (navData.isActive ? "activeLink" : "")}
                 to="/store/child"
+                onClick={hideMenuHandler}
               >
                 Kids
               </NavLink>
             </li>
           </ul>
-        </nav>
-        <div className={classes.cart}>
-          <CartIcon onShowCart={props.onShowCartHandler} />
+        </div>
+        <div className={classes["nav-buttons"]}>
+          <div className={classes.cart}>
+            <CartIcon onShowCart={props.onShowCartHandler} />
+          </div>
+          <Hamburger onClick={showMenuHandler} activeMenu={showLinks} />
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

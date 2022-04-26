@@ -1,4 +1,27 @@
 div.product-container {
-  height: 100vh;
-  padding-top: 200px;
+  display: flex;
+  margin-top: 75px;
+  height: calc(100vh - 75px);
+}
+
+div.product-container aside {
+  width: 50%;
+  height: 100%;
+}
+
+div.product-container aside.left img {
+  width: 80%;
+  height: 80%;
+}
+
+div.product-container aside.right {
+  font-family: "Roboto";
+}
+
+div.product-container aside.right h1 {
+  font-size: 64px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: #131200;
+  font-weight: 800;
 }

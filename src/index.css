@@ -1,12 +1,21 @@
+:root {
+  --darkGray: #131200;
+  --lightGray: #7a7a7a;
+  --white: #fff;
+  --black: #000;
+  --gradientPink: #9c0f48;
+  --gradientBlue: #2f86a6;
+  --mainFont: "Roboto";
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: #b3e140; */
 }
 
 a.activeLink {
-  color: red;
+  font-weight: 600;
 }
 
 ::-webkit-scrollbar {

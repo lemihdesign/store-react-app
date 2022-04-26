@@ -4,16 +4,19 @@ import Layout from "../components/Layout/Layout";
 import Brands from "../components/UI/Brands";
 import Cart from "../components/Cart/Cart";
 import NewCollection from "../components/UI/NewCollection";
+import { Fragment } from "react";
 
 const MainPage = (props) => {
   const cartIsShown = useSelector((state) => state.cart.cartIsShown);
   return (
-    <Layout>
-      {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
+    <Fragment>
       <Header />
-      <NewCollection />
-      <Brands />
-    </Layout>
+      {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
+      <Layout>
+        <NewCollection />
+        <Brands />
+      </Layout>
+    </Fragment>
   );
 };
 

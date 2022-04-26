@@ -56,15 +56,11 @@ const Store = (props) => {
 
   let storeHeader;
   if (productsType === "men")
-    storeHeader = <p className={classes.storeHeader}>Men's Trainers & Shoes</p>;
+    storeHeader = <p className={classes.storeHeader}>FOR MEN</p>;
   if (productsType === "women")
-    storeHeader = (
-      <p className={classes.storeHeader}>Women's Trainers & Shoes</p>
-    );
-  if (productsType === "infant")
-    storeHeader = (
-      <p className={classes.storeHeader}>Kids's Trainers & Shoes</p>
-    );
+    storeHeader = <p className={classes.storeHeader}>FOR WOMEN</p>;
+  if (productsType === "child")
+    storeHeader = <p className={classes.storeHeader}>FOR KID</p>;
 
   return (
     <Fragment>
