@@ -2,20 +2,28 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./FilterBar.module.css";
 import { priceActions } from "../../store/price-slice";
-import { brandActions } from "../../store/brand-slice";
+import { brandActions, filterActions } from "../../store/filter-slice";
+import { Link, useNavigate } from "react-router-dom";
 
 const FilterBar = (props) => {
   const [fixed, setFixed] = useState(false);
   const dispatch = useDispatch();
+  const history = useNavigate();
   const priceValue = useSelector((state) => state.price.priceValue);
-  const brandValue = useSelector((state) => state.brand.brand);
+  const brandValue = useSelector((state) => state.filter.brand);
+  const genderValue = useSelector((state) => state.filter.gender);
 
   const changePriceHandler = (e) => {
     dispatch(priceActions.changePrice(e.target.value));
   };
 
   const changeBrandHandler = (e) => {
-    dispatch(brandActions.changeBrand(e.target.value));
+    dispatch(filterActions.changeBrand(e.target.value));
+  };
+
+  const changeSiteHandler = (value) => {
+    history(`/store/${value}`);
+    dispatch(filterActions.changeGender(value));
   };
 
   const changeBarPositionHandler = () => {
@@ -35,11 +43,35 @@ const FilterBar = (props) => {
     <option value={brand}>{brand}</option>
   ));
 
+  const genderOptions = props.genders;
+  console.log(genderOptions);
+  const filteredUniqueGendersOptions = genderOptions.filter(
+    (option) =>
+      option !== "preschool" && option !== "unisex" && option !== "toddler"
+  );
+  const uniqueGendersOptions = [...new Set(filteredUniqueGendersOptions)].map(
+    (gender) => (
+      <option class={classes["option-value"]} value={gender}>
+        {gender.charAt(0).toUpperCase() + gender.slice(1)}
+      </option>
+    )
+  );
+
   return (
     <div
       className={fixed ? classes["filter-bar-fixed"] : classes["filter-bar"]}
     >
       <div className={classes["filter-bar-container"]}>
+        <div className={classes["filter-bar-item"]}>
+          <select
+            name="gender"
+            id="gender"
+            value={genderValue}
+            onChange={(e) => changeSiteHandler(e.target.value)}
+          >
+            {uniqueGendersOptions}
+          </select>
+        </div>
         <div className={classes["filter-bar-item"]}>
           <select
             name="brand"

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import brandSlice from "./brand-slice";
+import filterSlice from "./filter-slice";
 import cartSlice from "./cart-slice";
 import loadingSlice from "./loading-slice";
 
@@ -8,7 +8,7 @@ import priceSlice from "./price-slice";
 const store = configureStore({
   reducer: {
     price: priceSlice.reducer,
-    brand: brandSlice.reducer,
+    filter: filterSlice.reducer,
     loading: loadingSlice.reducer,
     cart: cartSlice.reducer,
   },

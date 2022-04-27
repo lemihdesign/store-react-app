@@ -13,7 +13,8 @@ const Store = (props) => {
   const params = useParams();
   const productsType = params.type;
   const priceValue = useSelector((state) => state.price.priceValue);
-  const brandValue = useSelector((state) => state.brand.brand);
+  const brandValue = useSelector((state) => state.filter.brand);
+  const genderValue = useSelector((state) => state.filter.gender);
   const loadingStatus = useSelector((state) => state.loading.isLoading);
   const cartIsShown = useSelector((state) => state.cart.cartIsShown);
 
@@ -25,7 +26,8 @@ const Store = (props) => {
       product.media.smallImageUrl !== "" &&
       product.retailPrice <= priceValue &&
       product.retailPrice !== 0 &&
-      product.brand === brandValue
+      product.brand === brandValue &&
+      product.gender.includes(genderValue)
   );
 
   const filteredProducts = products.map((product) => (
@@ -52,6 +54,8 @@ const Store = (props) => {
   );
   const brands = filteredBrands.map((product) => product.brand);
 
+  const genders = productsList.map((product) => product.gender);
+
   const numberOfResults = filteredProducts.length;
 
   let storeHeader;
@@ -71,7 +75,7 @@ const Store = (props) => {
           numberOfResults={numberOfResults}
         />
       </Layout>
-      <FilterBar prices={prices} brands={brands} />
+      <FilterBar prices={prices} brands={brands} genders={genders} />
       <Layout>
         {loadingStatus && <p>Loading...</p>}
         {!loadingStatus && (

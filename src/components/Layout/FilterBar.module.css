@@ -59,6 +59,15 @@ div.filter-bar .filter-bar-container option {
   cursor: pointer;
 }
 
+div.filter-bar .filter-bar-container option:checked,
+div.filter-bar .filter-bar-container select:focus option {
+  display: block;
+}
+
+div.filter-bar .filter-bar-container .option-value::first-letter {
+  text-transform: uppercase;
+}
+
 div.filter-bar .filter-bar-container div.filter-bar-item {
   display: flex;
   align-items: center;
