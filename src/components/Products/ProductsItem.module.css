@@ -73,6 +73,7 @@
     font-family: var(--mainFont);
     color: var(--darkGray);
     transition: 0.4s;
+    margin: 25px 0;
   }
 
   .product-box-active .product-image img {
@@ -97,5 +98,114 @@
     color: var(--white);
     border: none;
     margin-top: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .product-box {
+    width: 24%;
+    min-height: 300px;
+    height: 100%;
+    border: 1px solid var(--borderLightGray);
+    font-family: var(--mainFont);
+    color: var(--darkGray);
+    margin: 5px 5px;
+    cursor: pointer;
+  }
+
+  .product-box-label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .product-box-label span {
+    width: 5px;
+    height: 50px;
+    border-radius: 2px;
+    margin-top: 15px;
+    margin-left: -3px;
+    background-color: var(--darkGray);
+  }
+
+  .product-box-label .info {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+  }
+
+  .product-box-label .info .product-name {
+    font-weight: 600;
+    color: var(--darkGray);
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  .product-box-label .info .product-brand {
+    font-weight: 400;
+    color: var(--lightGray);
+    margin-top: -10px;
+    margin-left: 15px;
+  }
+
+  .product-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+  }
+
+  .product-image img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .product-price-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 22px;
+    margin-top: 25px;
+  }
+
+  /* Product Active */
+
+  .product-box-active {
+    position: relative;
+    width: 24%;
+    min-height: 300px;
+    height: 100%;
+    border: 1px solid var(--borderLightGray);
+    font-family: var(--mainFont);
+    color: var(--darkGray);
+    transition: 0.4s;
+    margin: 5px 5px;
+    cursor: pointer;
+  }
+
+  .product-box-active .product-image img {
+    transform: scale(1.2);
+    transition: 0.4s;
+  }
+
+  .product-controls {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+    width: 32px;
+    transform: translate(0, -50%);
+  }
+
+  .product-controls button {
+    width: 32px;
+    height: 32px;
+    background-color: var(--darkGray);
+    border-radius: 0 3px 3px 0;
+    color: var(--white);
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
   }
 }
