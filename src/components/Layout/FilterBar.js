@@ -69,7 +69,7 @@ const FilterBar = (props) => {
             value={genderValue}
             onChange={(e) => changeSiteHandler(e.target.value)}
           >
-            {uniqueGendersOptions}
+            <optgroup label="Filter by Gender">{uniqueGendersOptions}</optgroup>
           </select>
         </div>
         <div className={classes["filter-bar-item"]}>
@@ -79,7 +79,7 @@ const FilterBar = (props) => {
             value={brandValue}
             onChange={changeBrandHandler}
           >
-            {uniqueBrandOptions}
+            <optgroup label="Filter by Brand">{uniqueBrandOptions}</optgroup>
           </select>
         </div>
         <div className={classes["filter-bar-item"]}>

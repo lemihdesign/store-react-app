@@ -41,11 +41,14 @@ div.filter-bar .filter-bar-container .filter-bar-item label span {
 }
 
 div.filter-bar .filter-bar-container select {
-  padding: 5px;
+  padding: 10px;
   background-color: transparent;
   border: 1px solid #7a7a7a;
-  /* border-radius: 10px; */
+  border-radius: 3px;
   cursor: pointer;
+  font-family: var(--mainFont);
+  color: var(--darkGray);
+  font-size: 14px;
 }
 
 div.filter-bar .filter-bar-container select:focus {
