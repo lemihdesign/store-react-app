@@ -1,125 +1,101 @@
-div.product-box {
-  display: flex;
-  flex-direction: column;
-  min-width: 22.6%;
-  border: 1px solid #dddd;
-  border-radius: 10px;
-  margin: 1%;
-  padding: 25px 0 0 0;
-}
-
-div.product-box .product-box-label {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-div.product-box .product-box-label span {
-  width: 4px;
-  height: 40px;
-  display: block;
-  background-color: #333;
-  margin-left: -4px;
-  border-radius: 2px;
-}
-
-div.product-box .product-box-label .info {
-  display: flex;
-  flex-direction: column;
-}
-
-div.product-box .product-box-label .info p {
-  font-family: "Roboto";
-  margin: 0 40px;
-}
-
-div.product-box .product-box-label .info .product-name {
-  color: #7a7a7a;
-  font-weight: 400;
-  font-size: 15px;
-}
-
-div.product-box .product-box-label .info .product-brand {
-  color: #333;
-  font-weight: 800;
-  font-size: 16px;
-}
-
-div.product-box .product-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-div.product-box .product-image img {
-  max-width: 180px;
-  max-height: 180px;
-}
-
-div.product-box .product-price-box {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-div.product-box .product-price-box p {
-  margin: 0 40px;
-  font-family: "Roboto";
-}
-
-div.product-box .product-price-box p:nth-child(1) {
-  margin-top: 25px;
-  color: #7a7a7a;
-  font-style: 15px;
-  font-weight: 400;
-}
-
-div.product-box .product-price-box p.product-price {
-  font-weight: 800;
-  color: #333;
-  font-size: 18px;
-}
-
-div.product-box .product-controls {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-div.product-box .product-controls button {
-  margin-bottom: -15px;
-  margin-right: -15px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 1px solid #333;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-div.product-box .product-controls button i {
-  color: #333;
-  font-size: 19px;
-  transition: 0.4s;
-}
-
-div.product-box .product-controls button:hover {
-  background-color: #333;
-}
-
-div.product-box .product-controls button:hover i {
-  color: #fff;
-}
-
-@media (max-width: 920px) {
-  div.product-box {
-    flex: 1 21%;
+@media (max-width: 768px) {
+  .product-box {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--borderLightGray);
+    font-family: var(--mainFont);
+    color: var(--darkGray);
+    margin: 25px 0;
   }
-}
 
-@media (max-width: 600px) {
-  div.product-box {
-    flex: 1 46%;
+  .product-box-label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .product-box-label span {
+    width: 6px;
+    height: 40px;
+    border-radius: 2px;
+    margin-top: 15px;
+    margin-left: -3px;
+    background-color: var(--darkGray);
+  }
+
+  .product-box-label .info {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+  }
+
+  .product-box-label .info .product-name {
+    font-weight: 600;
+    color: var(--darkGray);
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  .product-box-label .info .product-brand {
+    font-weight: 400;
+    color: var(--lightGray);
+    margin-top: -10px;
+    margin-left: 15px;
+  }
+
+  .product-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+  }
+
+  .product-image img {
+    width: 50%;
+    height: 50%;
+  }
+
+  .product-price-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  /* Product Active */
+
+  .product-box-active {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--borderLightGray);
+    font-family: var(--mainFont);
+    color: var(--darkGray);
+    transition: 0.4s;
+  }
+
+  .product-box-active .product-image img {
+    transform: scale(1.2);
+    transition: 0.4s;
+  }
+
+  .product-controls {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+    width: 32px;
+    transform: translate(0, -50%);
+  }
+
+  .product-controls button {
+    width: 32px;
+    height: 32px;
+    background-color: var(--darkGray);
+    border-radius: 0 3px 3px 0;
+    color: var(--white);
+    border: none;
+    margin-top: 10px;
   }
 }
