@@ -5,6 +5,7 @@ div.filter-bar {
   border-bottom: 1px solid #dddd;
   background-color: #fff;
   transition: 0.4s;
+  margin-top: -20px;
 }
 
 div.filter-bar-fixed {

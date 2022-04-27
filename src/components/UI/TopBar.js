@@ -15,7 +15,7 @@ const TopBar = () => {
   window.addEventListener("scroll", changeBarPositionHandler);
 
   return (
-    <div className={fixed ? classes["bar-disabled"] : classes["bar"]}>
+    <div className={classes["bar"]}>
       <ul>
         <li>Help</li>
         <li>Sign Up</li>

@@ -11,10 +11,6 @@ div.bar {
   z-index: 10;
 }
 
-div.bar-disabled {
-  display: none;
-}
-
 div.bar ul li {
   display: inline-block;
   /* width: 100px; */

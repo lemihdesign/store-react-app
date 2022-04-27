@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 :root {
   --darkGray: #131200;
+  --headerDarkGray: rgb(31, 31, 31);
   --lightGray: #7a7a7a;
   --borderLightGray: #dddd;
   --white: #fff;
@@ -7,6 +10,7 @@
   --gradientPink: #9c0f48;
   --gradientBlue: #2f86a6;
   --mainFont: "Roboto";
+  --bebasFont: "Bebas Neue", cursive;
 }
 
 body {

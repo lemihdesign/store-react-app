@@ -68,12 +68,12 @@ const Store = (props) => {
 
   return (
     <Fragment>
+      <ProductsHeader
+        storeHeader={storeHeader}
+        numberOfResults={numberOfResults}
+      />
       <Layout>
         {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
-        <ProductsHeader
-          storeHeader={storeHeader}
-          numberOfResults={numberOfResults}
-        />
       </Layout>
       <FilterBar prices={prices} brands={brands} genders={genders} />
       <Layout>

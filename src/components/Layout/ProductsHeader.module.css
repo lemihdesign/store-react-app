@@ -1,5 +1,5 @@
 div.products-header {
-  height: 150px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,8 +8,8 @@ div.products-header {
   font-size: 32px;
   color: var(--darkGray);
   font-weight: 800;
-  margin-top: -10px;
-  padding-top: 50px;
+  margin-top: 85px;
+  background-color: #f3ebe8;
 }
 
 div.products-header .results-section p {
