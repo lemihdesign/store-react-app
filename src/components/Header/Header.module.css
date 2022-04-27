@@ -22,7 +22,6 @@
   }
 
   .header h1 span:nth-child(1) {
-    position: relative;
     font-size: 64px;
     color: var(--white);
     text-shadow: -1px 0 var(--darkGray), 0 1px var(--darkGray),

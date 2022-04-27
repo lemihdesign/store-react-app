@@ -28,8 +28,7 @@ function App() {
     };
 
     dispatch(loadingActions.loading(true));
-    // https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=100
-    fetch("", options)
+    fetch("https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=100", options)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
