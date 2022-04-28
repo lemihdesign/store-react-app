@@ -51,7 +51,7 @@ const FilterBar = (props) => {
   );
   const uniqueGendersOptions = [...new Set(filteredUniqueGendersOptions)].map(
     (gender) => (
-      <option class={classes["option-value"]} value={gender}>
+      <option className={classes["option-value"]} value={gender}>
         {gender.charAt(0).toUpperCase() + gender.slice(1)}
       </option>
     )

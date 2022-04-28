@@ -8,6 +8,8 @@ import ProductsItem from "../components/Products/ProductsItem";
 
 import classes from "./Store.module.css";
 import Cart from "../components/Cart/Cart";
+import LoadingModal from "../components/UI/LoadingModal";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 const Store = (props) => {
   const params = useParams();
@@ -77,7 +79,11 @@ const Store = (props) => {
       </Layout>
       <FilterBar prices={prices} brands={brands} genders={genders} />
       <Layout>
-        {loadingStatus && <p>Loading...</p>}
+        {loadingStatus && (
+          <LoadingModal>
+            <LoadingSpinner />
+          </LoadingModal>
+        )}
         {!loadingStatus && (
           <div className={classes.productsContainer}>{filteredProducts}</div>
         )}

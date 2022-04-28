@@ -58,7 +58,7 @@ function App() {
 
   return (
     <Fragment>
-      {<TopBar />}
+      {<TopBar id={products.id} />}
       <MainNavigation onShowCartHandler={showCartHandler} />
       <main className={pathname === "/" ? "landing-page" : ""}>
         <Routes>

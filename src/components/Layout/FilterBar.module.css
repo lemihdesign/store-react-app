@@ -121,6 +121,10 @@ div.filter-bar .filter-bar-container input[type="range"]::-webkit-slider-thumb {
 
 /* /// */
 
+div.filter-bar-fixed {
+  margin-top: 34px;
+}
+
 div.filter-bar-fixed .filter-bar-container {
   display: flex;
   align-items: center;

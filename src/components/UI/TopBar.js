@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./TopBar.module.css";
 
-const TopBar = () => {
+const TopBar = (props) => {
   const [fixed, setFixed] = useState(false);
 
   const changeBarPositionHandler = () => {
@@ -16,7 +16,7 @@ const TopBar = () => {
 
   return (
     <div className={classes["bar"]}>
-      <ul>
+      <ul key={props.id}>
         <li>Help</li>
         <li>Sign Up</li>
         <li>Sign in</li>
