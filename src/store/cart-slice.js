@@ -3,7 +3,9 @@ import { toast } from "react-toastify";
 
 const initialCartState = {
   cartIsShown: false,
-  items: [],
+  items: localStorage.getItem("items")
+    ? JSON.parse(localStorage.getItem("items"))
+    : [],
   numberOfItems: 0,
   totalAmount: 0,
   shippingCost: 8,
@@ -23,16 +25,24 @@ const cartSlice = createSlice({
 
       if (exsitingItemIndex >= 0) {
         state.items[exsitingItemIndex].quantity++;
-        toast.info("The number of products has been increased.", {
-          position: "bottom-left",
-        });
+        toast.info(
+          `The number of ${action.payload.brand} ${action.payload.name} has been increased.`,
+          {
+            position: "bottom-left",
+          }
+        );
       } else {
         const tempProduct = { ...action.payload, quantity: 1 };
         state.items.push(tempProduct);
-        toast.success("The product has been added to the cart.", {
-          position: "bottom-left",
-        });
+        toast.success(
+          `${action.payload.brand} ${action.payload.name} has been added to the cart.`,
+          {
+            position: "bottom-left",
+          }
+        );
       }
+
+      localStorage.setItem("items", JSON.stringify(state.items));
     },
     removeItem(state, action) {
       const newItemsArray = state.items.filter(
