@@ -7,7 +7,9 @@ const initialCartState = {
     ? JSON.parse(localStorage.getItem("items"))
     : [],
   numberOfItems: 0,
-  totalAmount: 0,
+  totalAmount: localStorage.getItem("totalAmount")
+    ? JSON.parse(localStorage.getItem("totalAmount"))
+    : 0,
   shippingCost: 8,
 };
 
@@ -50,12 +52,16 @@ const cartSlice = createSlice({
       );
 
       state.items = newItemsArray;
+
       toast.error("The product has been removed from the cart!", {
         position: "bottom-left",
       });
 
       state.totalAmount =
         state.totalAmount - action.payload.price * action.payload.quantity;
+
+      localStorage.setItem("items", JSON.stringify(state.items));
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
     increaseNumberOfItems(state, action) {
       const exsitingItemIndex = state.items.findIndex(
@@ -66,6 +72,9 @@ const cartSlice = createSlice({
         state.items[exsitingItemIndex].quantity++;
         state.totalAmount = state.totalAmount + action.payload.price;
       }
+
+      localStorage.setItem("items", JSON.stringify(state.items));
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
     decreaseNumberOfItems(state, action) {
       const exsitingItemIndex = state.items.findIndex(
@@ -87,12 +96,17 @@ const cartSlice = createSlice({
             state.totalAmount - action.payload.price * action.payload.quantity;
         }
       }
+
+      localStorage.setItem("items", JSON.stringify(state.items));
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
     increaseTotalAmount(state, action) {
       state.totalAmount = state.totalAmount + action.payload;
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
     decreaseTotalAmount(state, action) {
       state.totalAmount = state.totalAmount - action.payload;
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
   },
 });
