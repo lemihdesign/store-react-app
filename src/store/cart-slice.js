@@ -73,6 +73,10 @@ const cartSlice = createSlice({
         state.totalAmount = state.totalAmount + action.payload.price;
       }
 
+      toast.info("The quantity has been increased.", {
+        position: "bottom-left",
+      });
+
       localStorage.setItem("items", JSON.stringify(state.items));
       localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
@@ -85,6 +89,10 @@ const cartSlice = createSlice({
         if (state.items[exsitingItemIndex].quantity > 1) {
           state.items[exsitingItemIndex].quantity--;
           state.totalAmount = state.totalAmount - action.payload.price;
+
+          toast.info("The quantity has been decreased.", {
+            position: "bottom-left",
+          });
         } else {
           const newItemsArray = state.items.filter(
             (item) => item.id !== action.payload.id
@@ -94,6 +102,10 @@ const cartSlice = createSlice({
 
           state.totalAmount =
             state.totalAmount - action.payload.price * action.payload.quantity;
+
+          toast.error("The item has been removed.", {
+            position: "bottom-left",
+          });
         }
       }
 
