@@ -1,16 +1,18 @@
+import "./App.css";
+
 import { Fragment, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import "./App.css";
+
 import MainNavigation from "./components/Header/MainNavigation";
 import TopBar from "./components/UI/TopBar";
-
 import Home from "./pages/Home";
 import Store from "./pages/Store";
-import { loadingActions } from "./store/loading-slice";
-import { cartActions } from "./store/cart-slice";
 import Footer from "./components/UI/Footer";
 import Product from "./pages/Product";
+
+import { cartActions } from "./store/cart-slice";
+import { loadingActions } from "./store/loading-slice";
 
 function App() {
   const [products, setProducts] = useState([]);
