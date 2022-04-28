@@ -6,16 +6,16 @@ div.products-header {
   justify-content: center;
   font-family: "Roboto";
   font-size: 32px;
-  color: var(--darkGray);
+  color: var(--white);
   font-weight: 800;
   margin-top: 85px;
-  background-color: #f3ebe8;
+  background-color: var(--black);
 }
 
 div.products-header .results-section p {
   font-size: 14px;
   font-weight: 400;
-  color: var(--darkGray);
+  color: var(--white);
   margin: 0;
 }
 
@@ -25,5 +25,5 @@ div.products-header .results-section p.number-of-results {
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: var(--white);
 }

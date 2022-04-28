@@ -12,11 +12,13 @@ const ProductsItem = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Aos.init({ duration: 1000 });
+    Aos.init({ once: true, startEvent: "scroll", duration: 1000 });
   }, []);
 
   const onMouseOverHandler = () => {
     setIsMouseOver(!isMouseOver);
+
+    Aos.init({ disable: true });
   };
 
   const addItemToCartHandler = () => {
@@ -34,12 +36,12 @@ const ProductsItem = (props) => {
 
   return (
     <div
+      data-aos="fade-up"
       className={
         isMouseOver ? classes["product-box-active"] : classes["product-box"]
       }
       onClick={onMouseOverHandler}
     >
-      {/*  */}
       <div className={classes["product-box-label"]}>
         <span className={classes.label}></span>
         <div className={classes.info}>

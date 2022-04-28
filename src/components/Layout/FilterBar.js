@@ -44,7 +44,6 @@ const FilterBar = (props) => {
   ));
 
   const genderOptions = props.genders;
-  console.log(genderOptions);
   const filteredUniqueGendersOptions = genderOptions.filter(
     (option) =>
       option !== "preschool" && option !== "unisex" && option !== "toddler"
