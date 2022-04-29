@@ -12,8 +12,8 @@ const MainPage = (props) => {
     <Fragment>
       <Header />
       {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
+      <NewCollection />
       <Layout>
-        <NewCollection />
         <Brands />
       </Layout>
     </Fragment>

@@ -49,9 +49,9 @@
 @media (min-width: 769px) {
   .header {
     display: flex;
-    margin-top: -20px;
+    margin-top: 50px;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     background-color: #f3ebe8;
   }
 
@@ -68,48 +68,22 @@
     position: relative;
   }
 
-  .header aside.left button {
-    position: absolute;
-    top: 75%;
-    left: 30%;
-    transform: translate(-25%, -50%);
-    width: 150px;
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--headerDarkGray);
-    text-transform: uppercase;
-    color: var(--white);
-    font-family: var(--mainFont);
-    cursor: pointer;
-  }
-
   .header aside.right img {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 500px;
     height: 400px;
   }
 
   .header aside.right h1 {
     position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: #f3ebe8;
     font-size: 528px;
     font-family: var(--bebasFont);
-    margin: 0;
+    margin-top: -75px;
     text-shadow: 1px 0 #bf4d4a, 0 1px #bf4d4a, -1px 0 #bf4d4a, 0 -1px #bf4d4a;
   }
 
-  .header h1 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .header aside.left h1 {
     color: var(--headerDarkGray);
     font-family: var(--bebasFont);
     text-transform: uppercase;
@@ -118,8 +92,27 @@
     line-height: 85px;
   }
 
-  .header h1 span {
+  .header aside.left h1 span {
     display: block;
     margin: 0;
+  }
+
+  .header aside.left button {
+    width: 150px;
+    padding: 10px 5px;
+    background-color: var(--headerDarkGray);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--mainFont);
+    font-size: 14px;
+    color: var(--white);
+    font-size: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+
+  .header aside.left button:hover {
+    box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.2);
   }
 }

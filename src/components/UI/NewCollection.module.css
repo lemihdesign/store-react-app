@@ -2,7 +2,7 @@
   .collections {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--white);
+    background-color: var(--black);
     font-family: var(--mainFont);
   }
 
@@ -43,13 +43,18 @@
   .collections {
     width: 100%;
     min-height: 100vh;
-    background-color: var(--white);
+    background-color: var(--black);
     font-family: var(--mainFont);
+    margin-top: -30px;
   }
 
   .collections h1 {
-    color: var(--darkGray);
-    font-size: 48px;
+    color: var(--white);
+    font-size: 22px;
+    text-align: center;
+    font-family: var(--mainFont);
+    font-weight: 400;
+    padding-top: 50px;
   }
 
   .collections h1 span {

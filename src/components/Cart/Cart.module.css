@@ -1,7 +1,7 @@
 h2.cart-header {
   font-family: "Roboto";
   font-size: 20px;
-  color: #333;
+  color: var(--darkGray);
   font-weight: 800;
   padding: 5px 40px;
 }
@@ -9,7 +9,7 @@ ul.cartList {
   width: 90%;
   max-height: 250px;
   overflow-y: scroll;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid var(--borderLightGray);
   padding-bottom: 10px;
 }
 
@@ -17,12 +17,12 @@ div.prices-details {
   font-family: "Roboto";
   width: 90%;
   padding: 25px;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid var(--borderLightGray);
 }
 
 div.prices-details span {
   display: block;
-  color: #333;
+  color: var(--darkGray);
   padding: 5px 0;
 }
 
@@ -40,7 +40,7 @@ div.total-amount {
 div.total-amount .pricesSpan {
   font-size: 23px;
   font-weight: 800;
-  color: #333;
+  color: var(--darkGray);
 }
 
 div.action {
@@ -53,16 +53,16 @@ div.action button {
   width: 98%;
   padding: 15px;
   border-radius: 10px;
-  background-color: #0044ff;
+  background-color: var(--darkGray);
   border: none;
-  color: #fff;
+  color: var(--white);
   margin-top: 50px;
   cursor: pointer;
 }
 
 div.empty-cart-container {
   font-family: "Roboto";
-  color: #333;
+  color: var(--darkGray);
   text-align: center;
   padding: 50px 0;
 }
@@ -74,7 +74,7 @@ div.empty-cart-container h2 {
 
 div.empty-cart-container p {
   margin: 0;
-  color: #7a7a7a;
+  color: var(--lightGray);
 }
 
 div.empty-cart-container p:nth-child(1) {
@@ -93,8 +93,8 @@ div.empty-cart-container button {
   padding: 10px;
   margin-top: 50px;
   font-family: "Roboto";
-  color: #fff;
-  background-color: rgb(0, 68, 255);
+  color: var(--white);
+  background-color: var(--darkGray);
   border: none;
   border-radius: 5px;
   box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.26);
