@@ -1,18 +1,21 @@
-import { Fragment, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../store/cart-slice";
 import Aos from "aos";
+
 import "aos/dist/aos.css";
 import classes from "./ProductsItem.module.css";
+
+import { Fragment, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { cartActions } from "../../store/cart-slice";
 
 const ProductsItem = (props) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
-  const { brand, name, color, imgSmall, price, id, gender } = props;
+  const { brand, name, color, imgSmall, price, id } = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Aos.init({ once: true, startEvent: "scroll", duration: 1000 });
+    Aos.init({ once: true, duration: 1000 });
   }, []);
 
   const onMouseOverHandler = () => {
@@ -69,7 +72,6 @@ const ProductsItem = (props) => {
           </Fragment>
         )}
       </div>
-      {/* </Link> */}
     </div>
   );
 };

@@ -1,9 +1,11 @@
+import classes from "./FilterBar.module.css";
+
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import classes from "./FilterBar.module.css";
+import { useNavigate } from "react-router-dom";
+
 import { priceActions } from "../../store/price-slice";
-import { brandActions, filterActions } from "../../store/filter-slice";
-import { Link, useNavigate } from "react-router-dom";
+import { filterActions } from "../../store/filter-slice";
 
 const FilterBar = (props) => {
   const [fixed, setFixed] = useState(false);
