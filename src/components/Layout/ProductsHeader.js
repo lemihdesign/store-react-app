@@ -1,16 +1,7 @@
 import classes from "./ProductsHeader.module.css";
 
 const ProductsHeader = (props) => {
-  return (
-    <div className={classes["products-header"]}>
-      {props.storeHeader}
-      <div className={classes["results-section"]}>
-        <p className={classes["number-of-results"]}>
-          - {props.numberOfResults} results
-        </p>
-      </div>
-    </div>
-  );
+  return <div className={classes["products-header"]}>{props.storeHeader}</div>;
 };
 
 export default ProductsHeader;

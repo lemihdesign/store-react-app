@@ -1,215 +1,191 @@
-div.filter-bar {
-  width: 100%;
-  height: 75px;
-  border-top: 1px solid #dddd;
-  border-bottom: 1px solid #dddd;
-  background-color: #fff;
-  transition: 0.4s;
-  margin-top: -20px;
+.filter-bar {
+  display: none;
 }
 
-div.filter-bar-fixed {
-  position: fixed;
-  width: 100%;
-  height: 75px;
-  border-top: 1px solid #dddd;
-  border-bottom: 1px solid #dddd;
-  background-color: #fff;
-  z-index: 11;
-  top: 50px;
-  left: 0px;
-  transition: 0.4s;
-}
-
-div.filter-bar .filter-bar-container {
-  display: flex;
-  align-items: center;
-  width: 88%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-div.filter-bar .filter-bar-container .filter-bar-item label {
-  font-family: "Roboto";
-  font-family: 13px;
-  color: #333;
-  font-weight: 400;
-  margin-right: 10px;
-}
-
-div.filter-bar .filter-bar-container .filter-bar-item label span {
-  font-weight: 800;
-}
-
-div.filter-bar .filter-bar-container select {
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid #7a7a7a;
-  border-radius: 3px;
-  cursor: pointer;
-  font-family: var(--mainFont);
-  color: var(--darkGray);
-  font-size: 14px;
-}
-
-div.filter-bar .filter-bar-container select:focus {
-  background-color: #f0f0f0;
-}
-
-div.filter-bar .filter-bar-container option {
-  background-color: #fff;
-  border: 1px solid #7a7a7a;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-div.filter-bar .filter-bar-container option:checked,
-div.filter-bar .filter-bar-container select:focus option {
+.filter-bar-active {
   display: block;
 }
 
-div.filter-bar .filter-bar-container .option-value::first-letter {
-  text-transform: uppercase;
+@media (max-width: 768px) {
+  .control-bar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20px;
+    padding-top: 10px;
+  }
+
+  .control-bar button {
+    width: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--white);
+    border: 1px solid var(--lightGray);
+    border-radius: 10px;
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--darkGray);
+    margin-right: 15px;
+  }
+
+  .control-bar p {
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--lightGray);
+    margin-left: 15px;
+  }
+
+  .filter-bar-active {
+    width: 100%;
+    min-height: 50px;
+    height: 100%;
+    padding-top: 20px;
+  }
+
+  .filter-bar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-bar-container select {
+    padding: 10px 5px;
+    background-color: var(--white);
+    border: 1px solid var(--lightGray);
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--darkGray);
+  }
+
+  .filter-bar-container select:nth-child(1) {
+    margin-left: 15px;
+  }
+
+  .filter-bar-container select:nth-child(3) {
+    margin-right: 15px;
+  }
+
+  .filter-bar-container .range {
+    height: 80px;
+    width: 100%;
+    margin: 10px auto;
+    background-color: var(--white);
+    border: 1px solid var(--darkGray);
+    padding: 0 65px 0 45px;
+  }
+
+  .range .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .range .range-value {
+    position: relative;
+    width: 100%;
+  }
+
+  .range .field .value-left,
+  .value-right {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--darkGray);
+    font-family: var(--mainFont);
+  }
+
+  .range .field .value-left {
+    left: -22px;
+  }
+
+  .range .field .value-right {
+    right: -43px;
+  }
+
+  .range .field input {
+    -webkit-appearence: none;
+    height: 3px;
+    width: 100%;
+    background-color: var(--lightGray);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  .range .field input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: var(--darkGray);
+    border-radius: 50%;
+  }
 }
 
-div.filter-bar .filter-bar-container div.filter-bar-item {
-  display: flex;
-  align-items: center;
-}
+@media (min-width: 769px) {
+  .control-bar {
+    width: 100%;
+    min-height: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
 
-div.filter-bar .filter-bar-container div.filter-bar-item:nth-child(2) {
-  margin-left: 25px;
-}
+  .control-bar button {
+    width: 100px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--white);
+    border: 1px solid var(--lightGray);
+    border-radius: 10px;
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--darkGray);
+    margin-right: 15px;
+    cursor: pointer;
+  }
 
-div.filter-bar .filter-bar-container input[type="text"] {
-  padding: 6px;
-  background-color: transparent;
-  border: 1px solid #7a7a7a;
-  cursor: pointer;
-  font-family: "Roboto";
-  font-style: 16px;
-  color: #131200;
-}
+  .control-bar p {
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--lightGray);
+    margin-left: 15px;
+  }
 
-div.filter-bar .filter-bar-container input[type="text"]::placeholder {
-  color: #131200;
-  font-family: "Roboto";
-}
+  .filter-bar-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-div.filter-bar .filter-bar-container input[type="text"]:focus {
-  background-color: #f0f0f0;
-}
+  .filter-bar-container select {
+    padding: 10px 5px;
+    background-color: var(--white);
+    border: 1px solid var(--lightGray);
+    font-family: var(--mainFont);
+    font-size: 15px;
+    color: var(--darkGray);
+    cursor: pointer;
+  }
 
-div.filter-bar .filter-bar-container input[type="range"] {
-  -webkit-appearance: none;
-  height: 2px;
-  width: 100px;
-  background-color: #7a7a7a;
-  margin-left: 10px;
-  cursor: pointer;
-}
+  .filter-bar-container select:nth-child(1) {
+    margin-left: 15px;
+  }
 
-div.filter-bar .filter-bar-container input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  display: block;
-  background-color: #fff;
-  border-radius: 50%;
-  border: 2px solid #7a7a7a;
-}
-
-/* /// */
-
-div.filter-bar-fixed {
-  margin-top: 34px;
-}
-
-div.filter-bar-fixed .filter-bar-container {
-  display: flex;
-  align-items: center;
-  width: 88%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-div.filter-bar-fixed .filter-bar-container .filter-bar-item label {
-  font-family: "Roboto";
-  font-family: 13px;
-  color: #333;
-  font-weight: 400;
-  margin-right: 10px;
-}
-
-div.filter-bar-fixed .filter-bar-container .filter-bar-item label span {
-  font-weight: 800;
-}
-
-div.filter-bar-fixed .filter-bar-container select {
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid #7a7a7a;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-div.filter-bar-fixed .filter-bar-container select:focus {
-  background-color: #f0f0f0;
-}
-
-div.filter-bar-fixed .filter-bar-container option {
-  background-color: #fff;
-  border: 1px solid #7a7a7a;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-div.filter-bar-fixed .filter-bar-container div.filter-bar-item {
-  display: flex;
-  align-items: center;
-}
-
-div.filter-bar-fixed .filter-bar-container div.filter-bar-item:nth-child(2) {
-  margin-left: 25px;
-}
-
-div.filter-bar-fixed .filter-bar-container input[type="range"] {
-  -webkit-appearance: none;
-  height: 2px;
-  width: 100px;
-  background-color: #7a7a7a;
-  margin-left: 10px;
-  cursor: pointer;
-}
-
-div.filter-bar-fixed
-  .filter-bar-container
-  input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  display: block;
-  background-color: #fff;
-  border-radius: 50%;
-  border: 2px solid #7a7a7a;
-}
-
-div.filter-bar-fixed .filter-bar-container input[type="text"] {
-  padding: 10px 6px;
-  background-color: transparent;
-  border: 1px solid #7a7a7a;
-  cursor: pointer;
-  font-family: "Roboto";
-  font-style: 16px;
-  color: #131200;
-  border-radius: 3px;
-}
-
-div.filter-bar-fixed .filter-bar-container input[type="text"]::placeholder {
-  color: #131200;
-  font-family: "Roboto";
-}
-
-div.filter-bar-fixed .filter-bar-container input[type="text"]:focus {
-  background-color: #f0f0f0;
+  .filter-bar-container select:nth-child(3) {
+    margin-right: 15px;
+  }
 }

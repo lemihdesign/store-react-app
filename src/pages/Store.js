@@ -70,21 +70,23 @@ const Store = (props) => {
 
   return (
     <Fragment>
-      <ProductsHeader
-        storeHeader={storeHeader}
-        numberOfResults={numberOfResults}
-      />
+      <ProductsHeader storeHeader={storeHeader} />
       <Layout>
         {cartIsShown && <Cart onHideCart={props.onHideCartHandler} />}
       </Layout>
-      <FilterBar prices={prices} brands={brands} genders={genders} />
+      <FilterBar
+        numberOfResults={numberOfResults}
+        prices={prices}
+        brands={brands}
+        genders={genders}
+      />
       <Layout>
-        {loadingStatus && (
+        {!loadingStatus && (
           <LoadingModal>
             <LoadingSpinner />
           </LoadingModal>
         )}
-        {!loadingStatus && (
+        {loadingStatus && (
           <div className={classes.productsContainer}>{filteredProducts}</div>
         )}
       </Layout>

@@ -1,6 +1,6 @@
 import classes from "./FilterBar.module.css";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import { filterActions } from "../../store/filter-slice";
 
 const FilterBar = (props) => {
   const [fixed, setFixed] = useState(false);
+  const [isOptionShown, setIsOptionShown] = useState(false);
   const dispatch = useDispatch();
   const history = useNavigate();
   const priceValue = useSelector((state) => state.price.priceValue);
@@ -38,6 +39,10 @@ const FilterBar = (props) => {
 
   window.addEventListener("scroll", changeBarPositionHandler);
 
+  const showSortOptionsHandler = () => {
+    setIsOptionShown(!isOptionShown);
+  };
+
   const minPriceForFilter = Math.min(...props.prices);
 
   const brandOptions = props.brands;
@@ -59,47 +64,77 @@ const FilterBar = (props) => {
   );
 
   return (
-    <div
-      className={fixed ? classes["filter-bar-fixed"] : classes["filter-bar"]}
-    >
-      <div className={classes["filter-bar-container"]}>
-        <div className={classes["filter-bar-item"]}>
-          <select
-            name="gender"
-            id="gender"
-            value={genderValue}
-            onChange={(e) => changeSiteHandler(e.target.value)}
-          >
-            <optgroup label="Filter by Gender">{uniqueGendersOptions}</optgroup>
-          </select>
-        </div>
-        <div className={classes["filter-bar-item"]}>
-          <select
-            name="brand"
-            id="brand"
-            value={brandValue}
-            onChange={changeBrandHandler}
-          >
-            <optgroup label="Filter by Brand">{uniqueBrandOptions}</optgroup>
-          </select>
-        </div>
-        <div className={classes["filter-bar-item"]}>
-          <label htmlFor="filter-price">
-            <span>${priceValue}</span>{" "}
-          </label>
-          <input
-            type="range"
-            name="filter-price"
-            id="filter-price"
-            min={minPriceForFilter}
-            max="3000"
-            step="1"
-            value={priceValue}
-            onChange={changePriceHandler}
-          />
+    <Fragment>
+      <div className={classes["control-bar"]}>
+        <p>{props.numberOfResults} results</p>
+        <button onClick={showSortOptionsHandler}>
+          Filters <i className="fa-solid fa-sliders"></i>
+        </button>
+      </div>
+      <div
+        className={
+          isOptionShown ? classes["filter-bar-active"] : classes["filter-bar"]
+        }
+      >
+        <div className={classes["filter-bar-container"]}>
+          <div className={classes["filter-bar-item"]}>
+            <select
+              name="gender"
+              id="gender"
+              value={genderValue}
+              onChange={(e) => changeSiteHandler(e.target.value)}
+            >
+              <optgroup label="Filter by Gender">
+                {uniqueGendersOptions}
+              </optgroup>
+            </select>
+          </div>
+          <div className={classes["filter-bar-item"]}>
+            <select
+              name="brand"
+              id="brand"
+              value={brandValue}
+              onChange={changeBrandHandler}
+            >
+              <optgroup label="Filter by Brand">{uniqueBrandOptions}</optgroup>
+            </select>
+          </div>
+          <div className={classes["filter-bar-item"]}>
+            <select
+              name="color"
+              id="color"
+              value={genderValue}
+              onChange={(e) => changeSiteHandler(e.target.value)}
+            >
+              <optgroup label="Filter by Color">
+                {uniqueGendersOptions}
+              </optgroup>
+            </select>
+          </div>
+          <div className={classes["filter-bar-item"]}>
+            <div className={classes.range}>
+              <div className={classes["range-value"]}>
+                <span>{priceValue}</span>
+              </div>
+              <div className={classes.field}>
+                <div className={classes["value-left"]}>{minPriceForFilter}</div>
+                <input
+                  type="range"
+                  name="filter-price"
+                  id="filter-price"
+                  min={minPriceForFilter}
+                  max="3000"
+                  step="1"
+                  value={priceValue}
+                  onChange={changePriceHandler}
+                />
+                <div className={classes["value-right"]}>3000</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

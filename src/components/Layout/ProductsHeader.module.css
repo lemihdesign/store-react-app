@@ -11,19 +11,3 @@ div.products-header {
   margin-top: 85px;
   background-color: var(--black);
 }
-
-div.products-header .results-section p {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--white);
-  margin: 0;
-}
-
-div.products-header .results-section p.number-of-results {
-  margin: -20px 0;
-  padding: 0;
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--white);
-}
