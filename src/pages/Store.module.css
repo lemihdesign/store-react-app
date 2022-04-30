@@ -3,5 +3,5 @@ div.productsContainer {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 100px 0;
+  padding: 25px 0;
 }

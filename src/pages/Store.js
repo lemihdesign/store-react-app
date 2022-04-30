@@ -81,12 +81,12 @@ const Store = (props) => {
         genders={genders}
       />
       <Layout>
-        {!loadingStatus && (
+        {loadingStatus && (
           <LoadingModal>
             <LoadingSpinner />
           </LoadingModal>
         )}
-        {loadingStatus && (
+        {!loadingStatus && (
           <div className={classes.productsContainer}>{filteredProducts}</div>
         )}
       </Layout>

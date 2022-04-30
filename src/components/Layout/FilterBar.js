@@ -113,11 +113,8 @@ const FilterBar = (props) => {
           </div>
           <div className={classes["filter-bar-item"]}>
             <div className={classes.range}>
-              <div className={classes["range-value"]}>
-                <span>{priceValue}</span>
-              </div>
               <div className={classes.field}>
-                <div className={classes["value-left"]}>{minPriceForFilter}</div>
+                <div className={classes["value-left"]}>Max Price</div>
                 <input
                   type="range"
                   name="filter-price"
@@ -128,7 +125,7 @@ const FilterBar = (props) => {
                   value={priceValue}
                   onChange={changePriceHandler}
                 />
-                <div className={classes["value-right"]}>3000</div>
+                <div className={classes["value-right"]}>${priceValue}</div>
               </div>
             </div>
           </div>
