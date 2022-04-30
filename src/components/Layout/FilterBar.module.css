@@ -64,11 +64,7 @@
   }
 
   .filter-bar-container select:nth-child(1) {
-    margin-left: 15px;
-  }
-
-  .filter-bar-container select:nth-child(3) {
-    margin-right: 15px;
+    margin: 5px 0 0 5px;
   }
 
   .filter-bar-container .range {
@@ -80,7 +76,7 @@
     font-size: 15px;
     color: var(--darkGray);
     cursor: pointer;
-    margin: 15px;
+    margin: 5px;
   }
 
   .filter-bar-container .field {

@@ -53,7 +53,7 @@ div.action button {
   width: 98%;
   padding: 15px;
   border-radius: 10px;
-  background-color: var(--darkGray);
+  background-color: var(--black);
   border: none;
   color: var(--white);
   margin-top: 50px;
@@ -94,7 +94,7 @@ div.empty-cart-container button {
   margin-top: 50px;
   font-family: "Roboto";
   color: var(--white);
-  background-color: var(--darkGray);
+  background-color: var(--black);
   border: none;
   border-radius: 5px;
   box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.26);

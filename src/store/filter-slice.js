@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialBrandState = { brand: "Nike", gender: "" };
+const initialBrandState = { brand: "Nike", gender: "", color: "" };
 
 const filterSlice = createSlice({
   name: "filter",
@@ -10,6 +10,9 @@ const filterSlice = createSlice({
     },
     changeGender(state, action) {
       state.gender = action.payload;
+    },
+    changeColor(state, action) {
+      state.color = action.payload;
     },
   },
 });

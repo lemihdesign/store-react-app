@@ -19,6 +19,7 @@ const Store = (props) => {
   const genderValue = useSelector((state) => state.filter.gender);
   const loadingStatus = useSelector((state) => state.loading.isLoading);
   const cartIsShown = useSelector((state) => state.cart.cartIsShown);
+  const colorValue = useSelector((state) => state.filter.color);
 
   const { productsList } = props;
 
@@ -29,7 +30,8 @@ const Store = (props) => {
       product.retailPrice <= priceValue &&
       product.retailPrice !== 0 &&
       product.brand === brandValue &&
-      product.gender.includes(genderValue)
+      product.gender.includes(genderValue) &&
+      product.colorway.includes(colorValue)
   );
 
   const filteredProducts = products.map((product) => (
@@ -54,9 +56,15 @@ const Store = (props) => {
   const filteredBrands = productsList.filter(
     (brand) => brand.gender === `${productsType}`
   );
-  const brands = filteredBrands.map((product) => product.brand);
 
+  const brands = filteredBrands.map((product) => product.brand);
   const genders = productsList.map((product) => product.gender);
+
+  const fiteredColors = productsList.filter(
+    (product) => product.gender === `${productsType}`
+  );
+
+  const colors = fiteredColors.map((product) => product.colorway);
 
   const numberOfResults = filteredProducts.length;
 
@@ -67,6 +75,8 @@ const Store = (props) => {
     storeHeader = <p className={classes.storeHeader}>FOR WOMEN</p>;
   if (productsType === "child")
     storeHeader = <p className={classes.storeHeader}>FOR KID</p>;
+
+  console.log(colorValue);
 
   return (
     <Fragment>
@@ -79,6 +89,7 @@ const Store = (props) => {
         prices={prices}
         brands={brands}
         genders={genders}
+        colors={colors}
       />
       <Layout>
         {loadingStatus && (

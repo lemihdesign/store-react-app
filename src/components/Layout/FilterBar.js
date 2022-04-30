@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import { priceActions } from "../../store/price-slice";
 import { filterActions } from "../../store/filter-slice";
+import Layout from "./Layout";
 
 const FilterBar = (props) => {
   const [fixed, setFixed] = useState(false);
@@ -15,6 +16,7 @@ const FilterBar = (props) => {
   const priceValue = useSelector((state) => state.price.priceValue);
   const brandValue = useSelector((state) => state.filter.brand);
   const genderValue = useSelector((state) => state.filter.gender);
+  const colorValue = useSelector((state) => state.filter.color);
 
   const changePriceHandler = (e) => {
     dispatch(priceActions.changePrice(e.target.value));
@@ -22,6 +24,11 @@ const FilterBar = (props) => {
 
   const changeBrandHandler = (e) => {
     dispatch(filterActions.changeBrand(e.target.value));
+  };
+
+  const changeColorHandler = (e) => {
+    console.log(e.target.value);
+    dispatch(filterActions.changeColor(e.target.value));
   };
 
   const changeSiteHandler = (value) => {
@@ -64,7 +71,7 @@ const FilterBar = (props) => {
   );
 
   return (
-    <Fragment>
+    <Layout>
       <div className={classes["control-bar"]}>
         <p>{props.numberOfResults} results</p>
         <button onClick={showSortOptionsHandler}>
@@ -99,18 +106,26 @@ const FilterBar = (props) => {
               <optgroup label="Filter by Brand">{uniqueBrandOptions}</optgroup>
             </select>
           </div>
-          <div className={classes["filter-bar-item"]}>
-            <select
-              name="color"
-              id="color"
-              value={genderValue}
-              onChange={(e) => changeSiteHandler(e.target.value)}
-            >
-              <optgroup label="Filter by Color">
-                {uniqueGendersOptions}
-              </optgroup>
-            </select>
-          </div>
+          {
+            <div className={classes["filter-bar-item"]}>
+              <select
+                name="color"
+                id="color"
+                value={colorValue}
+                onChange={changeColorHandler}
+              >
+                <optgroup label="Filter by Color">
+                  <option value="Black">Black</option>
+                  <option value="White">White</option>
+                  <option value="Red">Red</option>
+                  <option value="Green">Green</option>
+                  <option value="Yellow">Yellow</option>
+                  <option value="Blue">Blue</option>
+                  <option value="">Multi-color</option>
+                </optgroup>
+              </select>
+            </div>
+          }
           <div className={classes["filter-bar-item"]}>
             <div className={classes.range}>
               <div className={classes.field}>
@@ -131,7 +146,7 @@ const FilterBar = (props) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </Layout>
   );
 };
 
