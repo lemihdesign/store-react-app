@@ -1,6 +1,15 @@
+import { useState } from "react";
 import classes from "./Form.module.css";
 
 const Form = () => {
+  const [firstname, setFirstname] = useState("");
+  const [surname, setSurname] = useState("");
+  const [city, setCity] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   return (
     <div className={classes["form-container"]}>
       <p>Submit Your Order</p>
