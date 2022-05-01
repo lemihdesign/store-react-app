@@ -7,7 +7,7 @@
     align-items: center;
   }
 
-  .cart-header h2 {
+  .cart-header p {
     font-family: "Roboto";
     font-size: 20px;
     color: var(--darkGray);
@@ -52,6 +52,7 @@
     font-family: "Roboto";
     width: 100%;
     padding: 25px;
+    border-bottom: 1px solid var(--borderLightGray);
   }
 
   div.total-amount .pricesSpan {
@@ -127,12 +128,12 @@
     align-items: center;
   }
 
-  .cart-header h2 {
+  .cart-header p {
     font-family: "Roboto";
     font-size: 20px;
     color: var(--darkGray);
     font-weight: 800;
-    padding: 5px 40px;
+    padding: 5px 25px;
   }
 
   .cart-header i {
@@ -171,6 +172,7 @@
     font-family: "Roboto";
     width: 90%;
     padding: 25px;
+    border-bottom: 1px solid var(--borderLightGray);
   }
 
   div.total-amount .pricesSpan {

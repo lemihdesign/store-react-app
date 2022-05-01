@@ -1,0 +1,95 @@
+@media (max-width: 768px) {
+  .form-container p {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: var(--darkGray);
+    font-weight: 800;
+    padding: 5px 25px;
+  }
+
+  .form-container .input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container .input-group .mobile-input-group {
+    display: flex;
+  }
+
+  .form-container .input-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+  }
+
+  form label {
+    font-family: var(--mainFont);
+    font-size: 13px;
+    color: var(--darkGray);
+    display: block;
+    margin-left: 25px;
+    margin-top: 15px;
+  }
+
+  form input {
+    width: 90%;
+    padding: 10px 5px;
+    margin-left: 25px;
+    margin-top: 15px;
+  }
+
+  form input.zip-code {
+    width: 100px;
+    text-align: center;
+  }
+
+  form input.address {
+    width: 90%;
+  }
+}
+@media (min-width: 769px) {
+  .form-container p {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: var(--darkGray);
+    font-weight: 800;
+    padding: 5px 25px;
+  }
+
+  .form-container .input-group {
+    width: 100%;
+    display: flex;
+  }
+
+  .form-container .input-group .mobile-input-group {
+    display: flex;
+  }
+
+  .form-container .input-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+  }
+
+  form label {
+    font-family: var(--mainFont);
+    font-size: 13px;
+    color: var(--darkGray);
+    display: block;
+    margin-left: 25px;
+    margin-top: 15px;
+  }
+
+  form input {
+    width: 250px;
+    padding: 10px 5px;
+    margin-left: 25px;
+    margin-top: 15px;
+  }
+
+  form input.zip-code {
+    width: 50px;
+    text-align: center;
+  }
+}

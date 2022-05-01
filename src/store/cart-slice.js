@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const initialCartState = {
   cartIsShown: false,
+  placeOrder: false,
   items: localStorage.getItem("items")
     ? JSON.parse(localStorage.getItem("items"))
     : [],
@@ -119,6 +120,9 @@ const cartSlice = createSlice({
     decreaseTotalAmount(state, action) {
       state.totalAmount = state.totalAmount - action.payload;
       localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
+    },
+    placeOrder(state, action) {
+      state.placeOrder = action.payload;
     },
   },
 });

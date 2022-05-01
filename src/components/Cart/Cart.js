@@ -5,12 +5,14 @@ import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 import emptyCartIcon from "../../assets/icons/empty-cart.svg";
 import { cartActions } from "../../store/cart-slice";
+import Form from "./Order Form/Form";
 
 const Cart = (props) => {
   const { onHideCart } = props;
   let items = useSelector((state) => state.cart.items);
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
+  const placeOrder = useSelector((state) => state.cart.placeOrder);
   const dispatch = useDispatch();
   const hasItems = items.length > 0;
 
@@ -31,13 +33,16 @@ const Cart = (props) => {
     dispatch(cartActions.showCart());
   };
 
+  const placeOrderHandler = () => {
+    dispatch(cartActions.placeOrder(true));
+  };
+
   let cartContent = "";
   if (hasItems) {
     cartContent = (
       <Fragment>
         <div className={classes["cart-header"]}>
-          <h2>Cart</h2>{" "}
-          <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
+          <p>Cart</p> <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
         </div>
         <ul className={classes.cartList}>{cartItems}</ul>
         <div className={classes["prices-details"]}>
@@ -65,8 +70,9 @@ const Cart = (props) => {
             </span>
           )}
         </div>
+        {placeOrder && <Form />}
         <div className={classes.action}>
-          <button>Place Order</button>
+          <button onClick={placeOrderHandler}>Place Order</button>
         </div>
       </Fragment>
     );
