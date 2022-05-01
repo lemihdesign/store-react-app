@@ -1,102 +1,239 @@
-h2.cart-header {
-  font-family: "Roboto";
-  font-size: 20px;
-  color: var(--darkGray);
-  font-weight: 800;
-  padding: 5px 40px;
-}
-ul.cartList {
-  width: 90%;
-  max-height: 250px;
-  overflow-y: scroll;
-  border-bottom: 1px solid var(--borderLightGray);
-  padding-bottom: 10px;
-}
+@media (max-width: 768px) {
+  .cart-header {
+    width: 95%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-div.prices-details {
-  font-family: "Roboto";
-  width: 90%;
-  padding: 25px;
-  border-bottom: 1px solid var(--borderLightGray);
-}
+  .cart-header h2 {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: var(--darkGray);
+    font-weight: 800;
+    margin-left: 25px;
+  }
 
-div.prices-details span {
-  display: block;
-  color: var(--darkGray);
-  padding: 5px 0;
-}
+  .cart-header i {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--darkGray);
+    margin-right: 15px;
+  }
 
-div.prices-details span.pricesSpan {
-  display: inline-block;
-  font-weight: 800;
-}
+  ul.cartList {
+    width: 100%;
+    max-height: 250px;
+    overflow-y: scroll;
+    border-bottom: 1px solid var(--borderLightGray);
+    padding-bottom: 10px;
+  }
 
-div.total-amount {
-  font-family: "Roboto";
-  width: 90%;
-  padding: 25px;
-}
+  div.prices-details {
+    font-family: "Roboto";
+    width: 100%;
+    padding: 25px;
+    border-bottom: 1px solid var(--borderLightGray);
+  }
 
-div.total-amount .pricesSpan {
-  font-size: 23px;
-  font-weight: 800;
-  color: var(--darkGray);
-}
+  div.prices-details span {
+    display: block;
+    color: var(--darkGray);
+    padding: 5px 0;
+  }
 
-div.action {
-  width: 96%;
-  display: flex;
-  justify-content: center;
-}
+  div.prices-details span.pricesSpan {
+    display: inline-block;
+    font-weight: 800;
+  }
 
-div.action button {
-  width: 98%;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: var(--black);
-  border: none;
-  color: var(--white);
-  margin-top: 50px;
-  cursor: pointer;
-}
+  div.total-amount {
+    font-family: "Roboto";
+    width: 100%;
+    padding: 25px;
+  }
 
-div.empty-cart-container {
-  font-family: "Roboto";
-  color: var(--darkGray);
-  text-align: center;
-  padding: 50px 0;
-}
+  div.total-amount .pricesSpan {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--darkGray);
+  }
 
-div.empty-cart-container h2 {
-  font-size: 32px;
-  margin-top: -25px;
-}
+  div.action {
+    width: 96%;
+    display: flex;
+    justify-content: center;
+  }
 
-div.empty-cart-container p {
-  margin: 0;
-  color: var(--lightGray);
-}
+  div.action button {
+    width: 98%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--black);
+    border: none;
+    color: var(--white);
+    margin-top: 50px;
+    cursor: pointer;
+  }
 
-div.empty-cart-container p:nth-child(1) {
-  font-size: 14px;
-  margin-top: 25px;
-}
+  div.empty-cart-container {
+    font-family: "Roboto";
+    color: var(--darkGray);
+    text-align: center;
+    padding: 50px 0;
+  }
 
-div.empty-cart-container img {
-  width: 350px;
-  height: 350px;
-  margin-top: -50px;
-}
+  div.empty-cart-container h2 {
+    font-size: 32px;
+    margin-top: -25px;
+  }
 
-div.empty-cart-container button {
-  width: 200px;
-  padding: 10px;
-  margin-top: 50px;
-  font-family: "Roboto";
-  color: var(--white);
-  background-color: var(--black);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.26);
-  cursor: pointer;
+  div.empty-cart-container p {
+    margin: 0;
+    color: var(--lightGray);
+  }
+
+  div.empty-cart-container p:nth-child(1) {
+    font-size: 14px;
+    margin-top: 25px;
+  }
+
+  div.empty-cart-container img {
+    width: 350px;
+    height: 350px;
+    margin-top: -50px;
+  }
+
+  div.empty-cart-container button {
+    width: 200px;
+    padding: 10px;
+    margin-top: 50px;
+    font-family: "Roboto";
+    color: var(--white);
+    background-color: var(--black);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+  }
+}
+@media (min-width: 769px) {
+  .cart-header {
+    width: 95%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-header h2 {
+    font-family: "Roboto";
+    font-size: 20px;
+    color: var(--darkGray);
+    font-weight: 800;
+    padding: 5px 40px;
+  }
+
+  .cart-header i {
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--darkGray);
+  }
+
+  ul.cartList {
+    width: 90%;
+    max-height: 250px;
+    overflow-y: scroll;
+    border-bottom: 1px solid var(--borderLightGray);
+    padding-bottom: 10px;
+  }
+
+  div.prices-details {
+    font-family: "Roboto";
+    width: 90%;
+    padding: 25px;
+    border-bottom: 1px solid var(--borderLightGray);
+  }
+
+  div.prices-details span {
+    display: block;
+    color: var(--darkGray);
+    padding: 5px 0;
+  }
+
+  div.prices-details span.pricesSpan {
+    display: inline-block;
+    font-weight: 800;
+  }
+
+  div.total-amount {
+    font-family: "Roboto";
+    width: 90%;
+    padding: 25px;
+  }
+
+  div.total-amount .pricesSpan {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--darkGray);
+  }
+
+  div.action {
+    width: 96%;
+    display: flex;
+    justify-content: center;
+  }
+
+  div.action button {
+    width: 98%;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--black);
+    border: none;
+    color: var(--white);
+    margin-top: 50px;
+    cursor: pointer;
+  }
+
+  div.empty-cart-container {
+    font-family: "Roboto";
+    color: var(--darkGray);
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  div.empty-cart-container h2 {
+    font-size: 32px;
+    margin-top: -25px;
+  }
+
+  div.empty-cart-container p {
+    margin: 0;
+    color: var(--lightGray);
+  }
+
+  div.empty-cart-container p:nth-child(1) {
+    font-size: 14px;
+    margin-top: 25px;
+  }
+
+  div.empty-cart-container img {
+    width: 350px;
+    height: 350px;
+    margin-top: -50px;
+  }
+
+  div.empty-cart-container button {
+    width: 200px;
+    padding: 10px;
+    margin-top: 50px;
+    font-family: "Roboto";
+    color: var(--white);
+    background-color: var(--black);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 6px 9px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+  }
 }

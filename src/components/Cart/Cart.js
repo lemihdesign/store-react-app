@@ -35,7 +35,10 @@ const Cart = (props) => {
   if (hasItems) {
     cartContent = (
       <Fragment>
-        <h2 className={classes["cart-header"]}>Koszyk</h2>
+        <div className={classes["cart-header"]}>
+          <h2>Cart</h2>{" "}
+          <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
+        </div>
         <ul className={classes.cartList}>{cartItems}</ul>
         <div className={classes["prices-details"]}>
           <span>
