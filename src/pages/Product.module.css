@@ -1,27 +1,98 @@
-div.product-container {
-  display: flex;
-  margin-top: 75px;
-  height: calc(100vh - 75px);
+@media (max-width: 768px) {
 }
 
-div.product-container aside {
-  width: 50%;
-  height: 100%;
-}
+@media (min-width: 769px) {
+  .product-container {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
 
-div.product-container aside.left img {
-  width: 80%;
-  height: 80%;
-}
+  aside.left {
+    position: relative;
+    width: 20%;
+    height: 100%;
+  }
 
-div.product-container aside.right {
-  font-family: "Roboto";
-}
+  aside.right {
+    position: relative;
+    width: 20%;
+    height: 100%;
+  }
 
-div.product-container aside.right h1 {
-  font-size: 64px;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  color: #131200;
-  font-weight: 800;
+  aside.center {
+    position: relative;
+    width: 59%;
+    height: 100%;
+  }
+
+  aside.center img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg) scaleX(-1);
+    width: 70%;
+    height: 50%;
+  }
+
+  .aside-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  aside.left .aside-container {
+    justify-content: center;
+  }
+
+  aside.right .aside-container {
+    justify-content: flex-end;
+  }
+
+  aside.right .aside-container p {
+    font-family: var(--mainFont);
+    font-size: 13px;
+    color: var(--darkGray);
+    margin: 0;
+  }
+
+  aside.right .aside-container p.colorway,
+  aside.right .aside-container p.styleId {
+    color: var(--lightGray);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  aside.right .aside-container p.price {
+    font-size: 72px;
+    font-weight: 600;
+    margin-top: 15px;
+    font-weight: var(--mainFont);
+    font-weight: 800;
+    color: var(--darkGray);
+  }
+
+  aside.right .aside-container button {
+    margin-bottom: 200px;
+    width: 200px;
+    padding: 10px;
+    font-family: var(--mainFont);
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+  }
+
+  aside.left p {
+    font-family: var(--bebasFont);
+    font-size: 72px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--darkGray);
+  }
 }

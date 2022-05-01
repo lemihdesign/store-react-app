@@ -42,6 +42,7 @@ function App() {
       })
       .then((data) => {
         setProducts(data.results);
+        console.log(data.results);
         dispatch(loadingActions.loading(false));
       })
       .catch((err) => {
@@ -78,7 +79,12 @@ function App() {
           />
           <Route
             path="/store/:type/:id"
-            element={<Product productsList={products} />}
+            element={
+              <Product
+                productsList={products}
+                onHideCartHandler={hideCartHandler}
+              />
+            }
           />
         </Routes>
       </main>

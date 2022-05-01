@@ -1,12 +1,14 @@
+import classes from "./Store.module.css";
+
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import FilterBar from "../components/Layout/FilterBar";
 import Layout from "../components/Layout/Layout";
 import ProductsHeader from "../components/Layout/ProductsHeader";
 import ProductsItem from "../components/Products/ProductsItem";
 
-import classes from "./Store.module.css";
 import Cart from "../components/Cart/Cart";
 import LoadingModal from "../components/UI/LoadingModal";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
