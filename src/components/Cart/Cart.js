@@ -74,13 +74,19 @@ const Cart = (props) => {
 
   if (!hasItems) {
     cartContent = (
-      <div className={classes["empty-cart-container"]}>
-        <img src={emptyCartIcon} alt="Empty" />
-        <h2>Your Cart is Empty</h2>
-        <p>I think blue button below is very important.</p>
-        <p>Begin ordering your products.</p>
-        <button onClick={hideCartHandler}>Begin Ordering</button>
-      </div>
+      <Fragment>
+        <div className={classes["cart-header"]}>
+          <h2>Cart</h2>{" "}
+          <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
+        </div>
+        <div className={classes["empty-cart-container"]}>
+          <img src={emptyCartIcon} alt="Empty" />
+          <h2>Your Cart is Empty</h2>
+          <p>I think blue button below is very important.</p>
+          <p>Begin ordering your products.</p>
+          <button onClick={hideCartHandler}>Begin Ordering</button>
+        </div>
+      </Fragment>
     );
   }
 
