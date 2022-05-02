@@ -1,15 +1,15 @@
 import classes from "./FilterBar.module.css";
 
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { priceActions } from "../../store/price-slice";
 import { filterActions } from "../../store/filter-slice";
+
 import Layout from "./Layout";
 
 const FilterBar = (props) => {
-  const [fixed, setFixed] = useState(false);
   const [isOptionShown, setIsOptionShown] = useState(false);
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -35,16 +35,6 @@ const FilterBar = (props) => {
     dispatch(filterActions.changeGender(value));
     history(`/store/${value}`);
   };
-
-  const changeBarPositionHandler = () => {
-    if (window.scrollY >= 230) {
-      setFixed(true);
-    } else {
-      setFixed(false);
-    }
-  };
-
-  window.addEventListener("scroll", changeBarPositionHandler);
 
   const showSortOptionsHandler = () => {
     setIsOptionShown(!isOptionShown);

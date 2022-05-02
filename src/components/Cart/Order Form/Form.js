@@ -1,7 +1,9 @@
-import { useDispatch } from "react-redux";
-import useInput from "../../../hooks/use-input";
-import { cartActions } from "../../../store/cart-slice";
 import classes from "./Form.module.css";
+
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
+
+import useInput from "../../../hooks/use-input";
 
 const Form = () => {
   const dispatch = useDispatch();

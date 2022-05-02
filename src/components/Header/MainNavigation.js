@@ -1,3 +1,5 @@
+import classes from "./MainNavigation.module.css";
+
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -6,21 +8,8 @@ import logoImage from "../../assets/logo2.png";
 import CartIcon from "../Cart/CartIcon";
 import Hamburger from "../UI/Hamburger";
 
-import classes from "./MainNavigation.module.css";
-
 const MainNavigation = (props) => {
-  const [fixed, setFixed] = useState(false);
   const [showLinks, setShowLinks] = useState(false);
-
-  const changeBarPositionHandler = () => {
-    if (window.scrollY >= 230) {
-      setFixed(true);
-    } else {
-      setFixed(false);
-    }
-  };
-
-  window.addEventListener("scroll", changeBarPositionHandler);
 
   const showMenuHandler = () => {
     setShowLinks(!showLinks);

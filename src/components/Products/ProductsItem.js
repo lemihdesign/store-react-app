@@ -1,7 +1,7 @@
-import Aos from "aos";
-
-import "aos/dist/aos.css";
 import classes from "./ProductsItem.module.css";
+import "aos/dist/aos.css";
+
+import Aos from "aos";
 
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";

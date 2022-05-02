@@ -1,6 +1,7 @@
-import { Fragment } from "react";
-import ReactDOM from "react-dom";
 import classes from "./LoadingModal.module.css";
+
+import ReactDOM from "react-dom";
+import { Fragment } from "react";
 
 const Backdrop = (props) => {
   return <div onClick={props.onHideCart} className={classes.backdrop}></div>;

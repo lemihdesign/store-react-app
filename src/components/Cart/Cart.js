@@ -1,11 +1,14 @@
+import classes from "./Cart.module.css";
+
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 import Modal from "../UI/Modal";
-import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
 import emptyCartIcon from "../../assets/icons/empty-cart.svg";
-import { cartActions } from "../../store/cart-slice";
 import Form from "./Order Form/Form";
+
+import { cartActions } from "../../store/cart-slice";
 
 const Cart = (props) => {
   const { onHideCart } = props;

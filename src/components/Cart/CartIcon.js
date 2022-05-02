@@ -1,8 +1,8 @@
+import classes from "./CartIcon.module.css";
+
 import { useSelector } from "react-redux";
 
 import icon from "../../assets/bag.png";
-
-import classes from "./CartIcon.module.css";
 
 const CartIcon = (props) => {
   const items = useSelector((state) => state.cart.items);
