@@ -47,6 +47,29 @@
   form input.address {
     width: 90%;
   }
+
+  .btn-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .form-btn {
+    margin: 50px 25px;
+    width: 150px;
+    padding: 10px 5px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--mainFont);
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-btn:disabled {
+    background-color: var(--lightGray);
+    cursor: not-allowed;
+  }
 }
 @media (min-width: 769px) {
   .form-container p {

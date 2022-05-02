@@ -13,7 +13,7 @@ const Form = () => {
     valueChangeHandler: nameValueChangeHandler,
     blurChangeHandler: nameBlurChangeHandler,
     reset: nameResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "" && value.trim().length > 2);
 
   const {
     value: surnameInputValue,
@@ -22,7 +22,7 @@ const Form = () => {
     valueChangeHandler: surnameValueChangeHandler,
     blurChangeHandler: surnameBlurChangeHandler,
     reset: surnameResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "" && value.trim().length > 2);
 
   const {
     value: cityInputValue,
@@ -31,7 +31,7 @@ const Form = () => {
     valueChangeHandler: cityValueChangeHandler,
     blurChangeHandler: cityBlurChangeHandler,
     reset: cityResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "" && value.trim().length > 3);
 
   const {
     value: addressInputValue,
@@ -40,7 +40,7 @@ const Form = () => {
     valueChangeHandler: addressValueChangeHandler,
     blurChangeHandler: addressBlurChangeHandler,
     reset: addressResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "" && value.trim().length > 3);
 
   const {
     value: postalCodeInputValue,
@@ -49,7 +49,10 @@ const Form = () => {
     valueChangeHandler: postalCodeValueChangeHandler,
     blurChangeHandler: postalCodeBlurChangeHandler,
     reset: postalCodeResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput(
+    (value) =>
+      value.trim() !== "" && value.trim().length >= 6 && value.trim().length < 7
+  );
 
   const {
     value: emailInputValue,
@@ -58,7 +61,7 @@ const Form = () => {
     valueChangeHandler: emailValueChangeHandler,
     blurChangeHandler: emailBlurChangeHandler,
     reset: emailResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput((value) => value.trim() !== "" && value.trim().includes("@"));
 
   const {
     value: phoneInputValue,
@@ -67,7 +70,12 @@ const Form = () => {
     valueChangeHandler: phoneValueChangeHandler,
     blurChangeHandler: phoneBlurChangeHandler,
     reset: phoneResetHandler,
-  } = useInput((value) => value.trim() !== "");
+  } = useInput(
+    (value) =>
+      value.trim() !== "" &&
+      value.trim().length >= 9 &&
+      value.trim().length < 10
+  );
 
   let formIsValid = false;
   if (
@@ -137,6 +145,17 @@ const Form = () => {
               onBlur={nameBlurChangeHandler}
               className={nameInputClasses}
             />
+            {nameInputHasError && (
+              <p
+                style={{
+                  color: "crimson",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                }}
+              >
+                Please enter a valid first name.
+              </p>
+            )}
           </div>
           <div className={classes["input-item"]}>
             <label htmlFor="surname">Surname</label>
@@ -148,6 +167,17 @@ const Form = () => {
               onBlur={surnameBlurChangeHandler}
               className={surnameInputClasses}
             />
+            {surnameInputHasError && (
+              <p
+                style={{
+                  color: "crimson",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                }}
+              >
+                Please enter a valid last name.
+              </p>
+            )}
           </div>
         </div>
         <div className={classes["input-group"]}>
@@ -161,6 +191,17 @@ const Form = () => {
               onBlur={cityBlurChangeHandler}
               className={cityInputClasses}
             />
+            {cityInputHasError && (
+              <p
+                style={{
+                  color: "crimson",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                }}
+              >
+                Please enter a valid city name.
+              </p>
+            )}
           </div>
           <div className={classes["mobile-input-group"]}>
             <div className={classes["input-item"]}>
@@ -173,6 +214,17 @@ const Form = () => {
                 onChange={addressValueChangeHandler}
                 onBlur={addressBlurChangeHandler}
               />
+              {addressInputHasError && (
+                <p
+                  style={{
+                    color: "crimson",
+                    fontWeight: "600",
+                    fontSize: "13px",
+                  }}
+                >
+                  Please enter a valid street name.
+                </p>
+              )}
             </div>
             <div className={classes["input-item"]}>
               <label htmlFor="postal-code">ZIP-Code</label>
@@ -184,6 +236,17 @@ const Form = () => {
                 onChange={postalCodeValueChangeHandler}
                 onBlur={postalCodeBlurChangeHandler}
               />
+              {postalCodeInputHasError && (
+                <p
+                  style={{
+                    color: "crimson",
+                    fontWeight: "600",
+                    fontSize: "13px",
+                  }}
+                >
+                  Please enter a valid postal code (Format: AB-CDE).
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -198,6 +261,17 @@ const Form = () => {
               onBlur={emailBlurChangeHandler}
               className={emailInputClasses}
             />
+            {emailInputHasError && (
+              <p
+                style={{
+                  color: "crimson",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                }}
+              >
+                Please enter a valid email address.
+              </p>
+            )}
           </div>
           <div className={classes["input-item"]}>
             <label htmlFor="phone">Phone Number</label>
@@ -209,6 +283,17 @@ const Form = () => {
               onBlur={phoneBlurChangeHandler}
               className={phoneInputClasses}
             />
+            {phoneInputHasError && (
+              <p
+                style={{
+                  color: "crimson",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                }}
+              >
+                Please enter a valid phone number (No area code).
+              </p>
+            )}
           </div>
         </div>
         <div className={classes["btn-section"]}>
