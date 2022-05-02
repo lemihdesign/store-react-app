@@ -13,6 +13,7 @@ import Product from "./pages/Product";
 
 import { cartActions } from "./store/cart-slice";
 import { loadingActions } from "./store/loading-slice";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -86,6 +87,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

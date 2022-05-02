@@ -35,13 +35,25 @@ const Footer = () => {
         <ul>
           <li>LINKS</li>
           <li>
-            <Link to="#">API</Link>
+            <a href="https://lemiszewski.pl" target="_blank">
+              Portfolio
+            </a>
           </li>
           <li>
-            <Link to="#">Github</Link>
+            <a
+              href="https://github.com/lemihdesign/store-react-app"
+              target="_blank"
+            >
+              Github
+            </a>
           </li>
           <li>
-            <Link to="#">Portfolio</Link>
+            <a
+              href="https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/v1-sneakers/"
+              target="_blank"
+            >
+              API
+            </a>
           </li>
         </ul>
       </div>
