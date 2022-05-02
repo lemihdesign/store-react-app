@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
         <ul>
           <li>LINKS</li>
           <li>
-            <a href="https://lemiszewski.pl" target="_blank">
+            <a href="https://lemiszewski.pl" target="_blank" rel="noreferrer">
               Portfolio
             </a>
           </li>
@@ -43,6 +43,7 @@ const Footer = () => {
             <a
               href="https://github.com/lemihdesign/store-react-app"
               target="_blank"
+              rel="noreferrer"
             >
               Github
             </a>
@@ -51,6 +52,7 @@ const Footer = () => {
             <a
               href="https://rapidapi.com/tg4-solutions-tg4-solutions-default/api/v1-sneakers/"
               target="_blank"
+              rel="noreferrer"
             >
               API
             </a>
