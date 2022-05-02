@@ -1,19 +1,24 @@
 import "./App.css";
 
+import React, { Suspense } from "react";
 import { Fragment, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import MainNavigation from "./components/Header/MainNavigation";
 import TopBar from "./components/UI/TopBar";
-import Home from "./pages/Home";
-import Store from "./pages/Store";
 import Footer from "./components/UI/Footer";
 import Product from "./pages/Product";
 
 import { cartActions } from "./store/cart-slice";
 import { loadingActions } from "./store/loading-slice";
-import NotFound from "./pages/NotFound";
+
+import LoadingModal from "./components/UI/LoadingModal";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+
+const Home = React.lazy(() => import("./pages/Home"));
+const Store = React.lazy(() => import("./pages/Store"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -43,7 +48,6 @@ function App() {
       })
       .then((data) => {
         setProducts(data.results);
-        console.log(data.results);
         dispatch(loadingActions.loading(false));
       })
       .catch((err) => {
@@ -64,34 +68,42 @@ function App() {
       {<TopBar id={products.id} />}
       <MainNavigation onShowCartHandler={showCartHandler} />
       <main className={pathname === "/" ? "landing-page" : ""}>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home onHideCartHandler={hideCartHandler} />}
-          />
-          <Route
-            path="/store/:type"
-            element={
-              <Store
-                productsList={products}
-                onHideCartHandler={hideCartHandler}
-              />
-            }
-          />
-          <Route
-            path="/store/:type/:id"
-            element={
-              <Product
-                productsList={products}
-                onHideCartHandler={hideCartHandler}
-              />
-            }
-          />
-          <Route
-            path="*"
-            element={<NotFound onHideCartHandler={hideCartHandler} />}
-          />
-        </Routes>
+        <Suspense
+          fallback={
+            <LoadingModal>
+              <LoadingSpinner />
+            </LoadingModal>
+          }
+        >
+          <Routes>
+            <Route
+              path="/"
+              element={<Home onHideCartHandler={hideCartHandler} />}
+            />
+            <Route
+              path="/store/:type"
+              element={
+                <Store
+                  productsList={products}
+                  onHideCartHandler={hideCartHandler}
+                />
+              }
+            />
+            <Route
+              path="/store/:type/:id"
+              element={
+                <Product
+                  productsList={products}
+                  onHideCartHandler={hideCartHandler}
+                />
+              }
+            />
+            <Route
+              path="*"
+              element={<NotFound onHideCartHandler={hideCartHandler} />}
+            />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </Fragment>

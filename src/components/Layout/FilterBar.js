@@ -32,8 +32,8 @@ const FilterBar = (props) => {
   };
 
   const changeSiteHandler = (value) => {
-    history(`/store/${value}`);
     dispatch(filterActions.changeGender(value));
+    history(`/store/${value}`);
   };
 
   const changeBarPositionHandler = () => {
@@ -86,9 +86,9 @@ const FilterBar = (props) => {
         <div className={classes["filter-bar-container"]}>
           <div className={classes["filter-bar-item"]}>
             <select
+              value={genderValue}
               name="gender"
               id="gender"
-              value={genderValue}
               onChange={(e) => changeSiteHandler(e.target.value)}
             >
               <optgroup label="Filter by Gender">
