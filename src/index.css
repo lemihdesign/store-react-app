@@ -38,3 +38,51 @@ a.activeLink {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(44, 44, 44);
 }
+
+.invalid {
+  border: 1px solid crimson;
+}
+
+@media (max-width: 768px) {
+  .zip-code-correct {
+    width: 50px;
+    text-align: center;
+  }
+
+  .zip-code-invalid {
+    width: 50px;
+    text-align: center;
+    border: 1px solid crimson;
+  }
+
+  .address-correct {
+    width: 90%;
+  }
+
+  .address-invalid {
+    width: 90%;
+    border: 1px solid crimson;
+  }
+}
+
+@media (min-width: 769px) {
+  .zip-code-correct {
+    width: 100px;
+    text-align: center;
+  }
+
+  .zip-code-invalid {
+    width: 100px;
+    text-align: center;
+    border: 1px solid crimson;
+  }
+
+  .address-correct {
+    width: 250px;
+  }
+
+  .address-invalid {
+    width: 250px;
+    border: 1px solid crimson;
+  }
+}

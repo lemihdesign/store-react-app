@@ -13,6 +13,9 @@ const Cart = (props) => {
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
   const placeOrder = useSelector((state) => state.cart.placeOrder);
+  const showPlaceOrderBtn = useSelector(
+    (state) => state.cart.showPlaceOrderBtn
+  );
   const dispatch = useDispatch();
   const hasItems = items.length > 0;
 
@@ -35,6 +38,7 @@ const Cart = (props) => {
 
   const placeOrderHandler = () => {
     dispatch(cartActions.placeOrder(true));
+    dispatch(cartActions.showPlaceOrderBtn(false));
   };
 
   let cartContent = "";
@@ -72,7 +76,9 @@ const Cart = (props) => {
         </div>
         {placeOrder && <Form />}
         <div className={classes.action}>
-          <button onClick={placeOrderHandler}>Place Order</button>
+          {showPlaceOrderBtn && (
+            <button onClick={placeOrderHandler}>Place Order</button>
+          )}
         </div>
       </Fragment>
     );
