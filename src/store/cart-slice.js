@@ -5,6 +5,7 @@ const initialCartState = {
   cartIsShown: false,
   placeOrder: false,
   showPlaceOrderBtn: true,
+  completedOrder: false,
   items: localStorage.getItem("items")
     ? JSON.parse(localStorage.getItem("items"))
     : [],
@@ -127,6 +128,15 @@ const cartSlice = createSlice({
     },
     showPlaceOrderBtn(state, action) {
       state.showPlaceOrderBtn = action.payload;
+    },
+    changeCompletedOrderState(state, action) {
+      state.completedOrder = action.payload;
+    },
+    clearCart(state) {
+      state.items = [];
+      state.totalAmount = 0;
+      localStorage.setItem("items", JSON.stringify(state.items));
+      localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
     },
   },
 });

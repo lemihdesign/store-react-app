@@ -10,12 +10,16 @@ import Form from "./Order Form/Form";
 
 import { cartActions } from "../../store/cart-slice";
 
+import image from "../../assets/icons/olympic-athlete.gif";
+import { Link } from "react-router-dom";
+
 const Cart = (props) => {
   const { onHideCart } = props;
   let items = useSelector((state) => state.cart.items);
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const shippingCost = useSelector((state) => state.cart.shippingCost);
   const placeOrder = useSelector((state) => state.cart.placeOrder);
+  const completedOrder = useSelector((state) => state.cart.completedOrder);
   const showPlaceOrderBtn = useSelector(
     (state) => state.cart.showPlaceOrderBtn
   );
@@ -37,6 +41,8 @@ const Cart = (props) => {
 
   const hideCartHandler = () => {
     dispatch(cartActions.showCart());
+    dispatch(cartActions.changeCompletedOrderState(false));
+    dispatch(cartActions.clearCart());
   };
 
   const placeOrderHandler = () => {
@@ -45,7 +51,7 @@ const Cart = (props) => {
   };
 
   let cartContent = "";
-  if (hasItems) {
+  if (hasItems && !completedOrder) {
     cartContent = (
       <Fragment>
         <div className={classes["cart-header"]}>
@@ -87,19 +93,43 @@ const Cart = (props) => {
     );
   }
 
-  if (!hasItems) {
+  if (!hasItems && !completedOrder) {
     cartContent = (
       <Fragment>
         <div className={classes["cart-header"]}>
-          <h2>Cart</h2>{" "}
-          <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
+          <p>Cart</p> <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
         </div>
         <div className={classes["empty-cart-container"]}>
           <img src={emptyCartIcon} alt="Empty" />
           <h2>Your Cart is Empty</h2>
           <p>I think blue button below is very important.</p>
           <p>Begin ordering your products.</p>
-          <button onClick={hideCartHandler}>Begin Ordering</button>
+          <button onClick={onHideCart}>Begin Ordering</button>
+        </div>
+      </Fragment>
+    );
+  }
+
+  if (completedOrder) {
+    cartContent = (
+      <Fragment>
+        <div className={classes["cart-header"]}>
+          <p>Cart</p> <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
+        </div>
+        <div className={classes["order-done"]}>
+          <div className={classes["order-done-container"]}>
+            <img src={image} alt="orderSuccessImage" />
+            <h2>The order has been accepted.</h2>
+            <p>Your shoes are ready for shipment. Wait for the parcel.</p>
+            <div className={classes["btns-section"]}>
+              <button onClick={hideCartHandler}>
+                <Link to={`/store/men`}>Continue Shopping</Link>
+              </button>
+              <button onClick={hideCartHandler}>
+                <Link to="/">Home Page</Link>
+              </button>
+            </div>
+          </div>
         </div>
       </Fragment>
     );

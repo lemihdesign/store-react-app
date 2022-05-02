@@ -104,6 +104,10 @@ const Form = () => {
     postalCodeResetHandler();
     emailResetHandler();
     phoneResetHandler();
+
+    dispatch(cartActions.changeCompletedOrderState(true));
+    dispatch(cartActions.placeOrder(false));
+    dispatch(cartActions.showPlaceOrderBtn(true));
   };
 
   const cancelOrder = () => {
