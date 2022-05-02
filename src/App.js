@@ -87,7 +87,10 @@ function App() {
               />
             }
           />
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="*"
+            element={<NotFound onHideCartHandler={hideCartHandler} />}
+          />
         </Routes>
       </main>
       <Footer />
