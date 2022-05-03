@@ -19,6 +19,7 @@
 
   .header aside.left {
     position: relative;
+    padding-bottom: 50px;
   }
 
   .header aside.left h1 {
@@ -26,7 +27,7 @@
     font-family: var(--bebasFont);
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 96px;
+    font-size: 72px;
     line-height: 85px;
   }
 
@@ -36,7 +37,7 @@
   }
 
   .header aside.left button {
-    width: 250px;
+    width: 200px;
     padding: 15px 5px;
     background-color: var(--headerDarkGray);
     border: none;

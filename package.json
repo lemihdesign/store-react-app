@@ -1,5 +1,6 @@
 {
   "name": "store-react-app",
+  "homepage": "http://store.lemiszewski.pl",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

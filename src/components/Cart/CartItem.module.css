@@ -51,7 +51,7 @@
   li.cart-item .product-details .name {
     font-weight: 400;
     color: var(--lightGray);
-    font-size: 12px;
+    font-size: 10px;
   }
 
   li.cart-item .product-details .price {
@@ -71,9 +71,9 @@
   li.cart-item .product-count-input button.control-btns {
     width: 20px;
     height: 20px;
-    margin: 0 10px;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
+    margin: 0 5px;
+    background-color: var(--white);
+    border: 1px solid var(--borderLightGray);
     border-radius: 3px;
     cursor: pointer;
     transition: 0.4s;
@@ -86,8 +86,8 @@
   li.cart-item .product-count-input input {
     width: 25px;
     height: 25px;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
+    background-color: var(--white);
+    border: 1px solid var(--borderLightGray);
     border-radius: 3px;
     appearance: none;
     text-align: center;
@@ -96,7 +96,7 @@
   li.cart-item .remove-item-btn {
     background-color: transparent;
     border: none;
-    color: #7a7a7a;
+    color: var(--lightGray);
     cursor: pointer;
     margin-top: 15px;
   }
@@ -125,7 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #dbdbdb;
+    border: 1px solid var(--borderLightGray);
     padding: 5px;
     border-radius: 10px;
   }
@@ -146,20 +146,20 @@
 
   li.cart-item .product-details .brand {
     font-weight: 800;
-    color: #333;
+    color: var(--darkGray);
     font-size: 16px;
   }
 
   li.cart-item .product-details .name {
     font-weight: 400;
-    color: #7a7a7a;
+    color: var(--lightGray);
     font-size: 14px;
   }
 
   li.cart-item .product-details .price {
     font-weight: 800;
     font-size: 18px;
-    color: #333;
+    color: var(--darkGray);
     margin-top: 15px;
   }
 
@@ -173,8 +173,8 @@
     width: 30px;
     height: 30px;
     margin: 0 10px;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
+    background-color: var(--white);
+    border: 1px solid var(--borderLightGray);
     border-radius: 3px;
     cursor: pointer;
     transition: 0.4s;
@@ -187,8 +187,8 @@
   li.cart-item .product-count-input input {
     width: 30px;
     height: 30px;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
+    background-color: var(--white);
+    border: 1px solid var(--borderLightGray);
     border-radius: 3px;
     appearance: none;
     text-align: center;
@@ -197,7 +197,7 @@
   li.cart-item .remove-item-btn {
     background-color: transparent;
     border: none;
-    color: #7a7a7a;
+    color: var(--lightGray);
     cursor: pointer;
     margin-top: 15px;
   }

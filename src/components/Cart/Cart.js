@@ -57,37 +57,39 @@ const Cart = (props) => {
         <div className={classes["cart-header"]}>
           <p>Cart</p> <i className="fa-solid fa-xmark" onClick={onHideCart}></i>
         </div>
-        <ul className={classes.cartList}>{cartItems}</ul>
-        <div className={classes["prices-details"]}>
-          <span>
-            Subtotal:{" "}
-            <span className={classes.pricesSpan}>
-              ${cartTotalAmount.toFixed(2)}
+        <div className={classes["cart-container"]}>
+          <ul className={classes.cartList}>{cartItems}</ul>
+          <div className={classes["prices-details"]}>
+            <span>
+              Subtotal:{" "}
+              <span className={classes.pricesSpan}>
+                ${cartTotalAmount.toFixed(2)}
+              </span>
             </span>
-          </span>
-          <span>
-            Shipping:{" "}
-            <span className={classes.pricesSpan}>
-              ${shippingCost.toFixed(2)}
+            <span>
+              Shipping:{" "}
+              <span className={classes.pricesSpan}>
+                ${shippingCost.toFixed(2)}
+              </span>
             </span>
-          </span>
-        </div>
-        <div className={classes["total-amount"]}>
-          <span>Total </span>
-          <span className={classes.pricesSpan}>
-            ${(shippingCost + cartTotalAmount).toFixed(2)}
-          </span>
-          {items.length === 0 && (
+          </div>
+          <div className={classes["total-amount"]}>
+            <span>Total </span>
             <span className={classes.pricesSpan}>
-              ${cartTotalAmount.toFixed(2)}
+              ${(shippingCost + cartTotalAmount).toFixed(2)}
             </span>
-          )}
-        </div>
-        {placeOrder && <Form />}
-        <div className={classes.action}>
-          {showPlaceOrderBtn && (
-            <button onClick={placeOrderHandler}>Place Order</button>
-          )}
+            {items.length === 0 && (
+              <span className={classes.pricesSpan}>
+                ${cartTotalAmount.toFixed(2)}
+              </span>
+            )}
+          </div>
+          {placeOrder && <Form />}
+          <div className={classes.action}>
+            {showPlaceOrderBtn && (
+              <button onClick={placeOrderHandler}>Place Order</button>
+            )}
+          </div>
         </div>
       </Fragment>
     );

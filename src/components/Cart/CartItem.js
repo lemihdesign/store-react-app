@@ -6,6 +6,7 @@ import { cartActions } from "../../store/cart-slice";
 const CartItem = (props) => {
   const { id, brand, name, price, image, quantity } = props;
   const items = useSelector((state) => state.cart.items);
+  const itemQuantity = useSelector((state) => state.cart.items.quantity);
   const dispatch = useDispatch();
 
   const filteredItems = items.filter((item) => item.id === id);
@@ -61,7 +62,7 @@ const CartItem = (props) => {
           >
             -
           </button>
-          <input type="text" value={itemsQuantity} />
+          <input type="text" value={itemsQuantity} disabled />
           <button
             className={classes["control-btns"]}
             onClick={increaseNumberOfItemsHandler}
