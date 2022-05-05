@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# React Store Live
+React Store App jest to moja pierwsza, w pełni samodzielnie wykonana aplikacja internetowa w React.js. Podczas nauki zdecydowałem, że nadeszła odpowiednia pora na utrwalenie wszystkiego co dotychczas poznałem. Tym samym postanowiłem stworzyć Single Page Application, która wykorzystuje informacje pochodzące z zewnętrznego API. Od samego początku, celem było stworzenie mini sklepu internetowego (bez funkcjonalności backendowych). Chciałem powtórzyć wszystko co związane m.in. z Routingiem czy Reduxem.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Zobacz stronę internetową [LIVE](http://store.lemiszewski.pl)**
 
-## Available Scripts
+![projectMockup2](https://user-images.githubusercontent.com/76050486/166917532-e6186a97-9718-480b-a468-f09bc8c0f2d3.png)
 
-In the project directory, you can run:
+# Podstawowe założenia projektu
 
-### `npm start`
+Użytkownik, wchodząc na stronę internetową, ma bezpośredni dostęp do sklepu internetowego. Podzielony został on na trzy różne działy obuwnicze - męski, damski oraz dziecięcy. Jako, że jest to **Single Page Application**, poruszanie pomiędzy komponentami, zrealizowane zostało przy pomocy **React Router** w wersji 6 i obsługi adresu URL dodatkowymi, opcjonalnymi parametrami. Z poziomu sklepu, użytkownik jest w stanie filtrować zwrócone wyniki. Obecnie dostarczone zostały cztery opcje filtracji: płeć, marka, kolorystyka oraz cena.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Główny komponent sklepu zawiera dynamicznie dopasowywane pod kątem wymagań użytkownika dane, pochodzące z zewnętrznego **API**. Dane te przedstawiają poszczególne produkty, wraz ze wszelkimi szczegółami, tj. kolorystyka, zdjęcia, marka, nazwa itp.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![storeMockup2](https://user-images.githubusercontent.com/76050486/166917686-c30eef92-1bf8-4d99-aa53-244f6ad64a86.jpg)
 
-### `npm test`
+Każdy produkt można zarówno dodać do koszyka jak i go usunąć. W tym celu wystarczy nacisnąć na zdjęcie interesującego nas produktu oraz wybrać jedną z dwóch akcji, które reprezentowane są przez specjalne ikony. Pierwsza z nich służy do dodawania do koszyka natomiast druga do wyświetlania szczegółów danego produktu. Po umieszczeniu produktu w koszyku, zmianie ulega stan koszyka.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![addingToCart](https://user-images.githubusercontent.com/76050486/166917742-ae5ada2e-5788-4f74-8961-f6727da67fbe.jpg)
 
-### `npm run build`
+## Koszyk
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dostęp do koszyka możliwy jest z każdego miejsca aplikacji. Sam koszyk posiada dynamiczny content, który dopasowywany jest w zależności od tego czy coś się w nim znajduje czy nie. W ten sposób można odpowiednio informować użytkownika o aktualnym stanie zakupów. W momencie gdy użytkownik doda produkty do koszyka, jest on w stanie bezpośrednio z jego poziomu zmieniać ich ilość jak i całkowicie je usuwać. Aktualna cena jest dopasowywana w sposób dynamiczny bazując na aktualnej ilości produktów w koszyku.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![emptyCartMockup2](https://user-images.githubusercontent.com/76050486/166917821-1944f2cb-fa15-40e7-8b22-06fb4d62243c.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![cartMockup2](https://user-images.githubusercontent.com/76050486/166917848-a8e77738-96b4-4b5e-aed0-2ca913f08765.jpg)
 
-### `npm run eject`
+Dodatkowo koszyk posiada kilka etapów. Pierwszym z nich jest sprawdzanie aktualnego zamówienia, drugim jest sama jego realizacja, która odbywa się poprzez wypełnienie specjalnie przygotowanego formularza. Formularz posiada podstawową walidację, zrealizowaną przy pomocy customowego hooka.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![cartFormMockup2](https://user-images.githubusercontent.com/76050486/166917976-9d08b004-7e32-4656-9960-74084b31b62c.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Po prawidłowej realizacji zamówienia, użytkownikowi ukazuje się specjalny ekran potwierdzający. Dodatkowo cała dotychczasowa zawartość koszyka jest czyszczona a sam użytkownik ma do wyboru dwie akcje - kontynuowanie zakupów jak i przejście do strony głównej.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![completedOrderMockup2](https://user-images.githubusercontent.com/76050486/166918024-4738a787-bd5e-441f-9e40-e5fba01607b0.jpg)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Szczegóły produktów
 
-## Learn More
+Każdy produkt posiada swój osobny widok, do którego użytkownik może przejść w celu poznania większej ilości szczegółów na temat konkretnego obuwia. Aktualnie widok ten jest dość podstawowy i nie zawiera bardzo dużej ilości informacji, aczkolwiek w przyszłości, w łatwy sposób można go rozwinąć o dodatkowe funkcjonalności.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![productDetailsMockup2](https://user-images.githubusercontent.com/76050486/166918100-8910b7ff-1440-47c2-8cbe-0fd2f673b607.jpg)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Proces tworzenia projektu
 
-### Code Splitting
+Projekt zrealizowany został przy użyciu biblioteki **React.js** oraz podstawowych narzędzi, służących zarówno do projektowania warstwy wizualnej jak i do kodowania strony internetowej. W trakcie pracy korzystałem z programu **Visual Studio Code**. Do kontroli wersji oprogramowania, standardowo skorzystałem z **Github**. Aby aplikacja mogła być pełnoprawną **Single Page Application** wykorzystałem **React Router** w wersji 6. Przy okazji tworzenia koszyka, postanowiłem, że przydatne mogą okazać się tzw. **App Wide States**, które dostarczył mi **Redux Toolkit**. Dodatkowo do obsługi pól tekstowych formularza wykorzystałem stworzony przeze mnie customowy **Hook**, który oparty jest o **useReducer()**. W celach wizualnych, oraz dla lepszego UX zdecydowałem się skorzystać z biblioteki **React Toastify**, która dostarczyła mi prostych powiadomień, które pokazują się na ekranie użytkownika w momencie zmian stanu koszyka. Dodawanie, usuwanie i zmiana elementów koszyka generuje odpowiednie komunikaty, napisane w języku angielskim. Strona przeszła również podstawową optymalizację. Postanowiłem wykorzystać tzw. **Lazy Loading** po to, aby komponenty ładowane były tylko wtedy, gdy jest to wymagane. Aplikacja ta jest co prawda na tyle mała, że różnica nie jest diametralnie wielka, aczkolwiek uznałem, że jest to dobrą praktyką a przy okazji dobrym ćwiczeniem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+**WYMAGANIA MINIMALNE**
+- Pozyskiwanie danych z zewnętrznego API
+- Przedstawienie danych w sklepie
+- Podział sklepu ze względu na płeć
+- Obsługa routingu na stronie
+- Wprowadzenie systemu filtracji produktów
+- Wprowadzenie komponentu koszyka
+- Obsługa ikony koszyka (licznika produktów)
+- Obsługa zawartości koszyka
+- Zarządzanie stanem koszyka z wykorzystaniem Redux Toolkit
+- Umożliwienie dodawanie/usuwanie elementów oraz modyfikowanie elementów koszyka
+- Dodanie różnych widoków koszyka
+- Udostępnienie formularza do składania zamówienia
+- Dodanie strony z detalami produktów
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**POCZYNIONE KROKI**
+- Inicjalizacja projektu i repozytorium
+- Stworzenie konceptu strony
+- Stworzenie struktury katalogów
+- Podział strony na komponenty
+- Stworzenie kluczowych komponentów
+- Wykorzystanie React Router do stworzenia routingu
+- Zastosowanie Lazy Loading w celu optymalizacji strony
+- Stworzenie store do przechowywania stanów aplikacji
+- Stworzenie i obługa koszyka i jego stanów
+- Ostylowanie aplikacji
+- Dodanie powiadomień z biblioteki React Toastify
+- Przeprowadzenie testów manualnych
 
-### Making a Progressive Web App
+# Responsywność
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Jak dobrze wiemy, dostępność aplikacji na urządzeniach mobilnych jest w obecnych czasach rzeczą kluczową. Tym samym, bardzo ważnym było dla mnie zapewnienie odpowiednich widoków dla korzystających ze smartphonów. React Store App jest w pełni responsywna. Cały proces stylowania aplikacji przeprowadzony został zgodnie z zasadą Mobile First.
 
-### Advanced Configuration
+![responsiveMockup2](https://user-images.githubusercontent.com/76050486/166918676-4473e561-21d9-48a2-b8ba-2fdd57788a6b.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Instalacja
+1. Klonowanie repozytorium
+2. Instalacja npm install
+3. Uruchomienie npm start
 
-### Deployment
+# Kontakt
+Miło mi jeżeli dotrwałeś/aś do końca. Jestem początkującym Frontend Developerem, który poszukuje pierwszych doświadczeń komercyjnych. Jeżeli jesteś zainteresowany/a współpracą proszę o kontakt. Z miłą chęcią podejmę się rozmowy.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **hello@lemiszewski.pl**
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jeżeli masz ochotę zobaczyć inne moje projekty, również takie, których nie zobaczysz na Githubie, zachęcam do zajrzenia na moje portfolio. Znajduje się ono pod adresem **www.lemiszewski.pl**
