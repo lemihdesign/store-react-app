@@ -23,7 +23,7 @@ const NewCollection = () => {
           <Link to="/store/men">
             <img src={image3} alt="Shoe" />
           </Link>
-          <Link to="/store/child">
+          <Link to="/store/men">
             <img src={image4} alt="Shoe" />
           </Link>
         </div>

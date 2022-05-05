@@ -1,7 +1,7 @@
 import classes from "./MainNavigation.module.css";
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import logoImage from "../../assets/logo2.png";
 
@@ -23,7 +23,9 @@ const MainNavigation = (props) => {
     <nav className={classes.nav}>
       <div className={classes["nav-container"]}>
         <div className={classes["nav-logo"]}>
-          <img src={logoImage} alt="Logo" />
+          <Link to="/">
+            <img src={logoImage} alt="Logo" />
+          </Link>
         </div>
         <div
           className={
