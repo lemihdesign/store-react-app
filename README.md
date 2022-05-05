@@ -1,4 +1,4 @@
-# React Store Live
+# React Store Live - ciągle aktualizowane
 React Store App jest to moja pierwsza, w pełni samodzielnie wykonana aplikacja internetowa w React.js. Podczas nauki zdecydowałem, że nadeszła odpowiednia pora na utrwalenie wszystkiego co dotychczas poznałem. Tym samym postanowiłem stworzyć Single Page Application, która wykorzystuje informacje pochodzące z zewnętrznego API. Od samego początku, celem było stworzenie mini sklepu internetowego (bez funkcjonalności backendowych). Chciałem powtórzyć wszystko co związane m.in. z Routingiem czy Reduxem.
 
 ## W projekcie użyłem
