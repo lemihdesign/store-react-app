@@ -1,6 +1,17 @@
 # React Store Live
 React Store App jest to moja pierwsza, w pełni samodzielnie wykonana aplikacja internetowa w React.js. Podczas nauki zdecydowałem, że nadeszła odpowiednia pora na utrwalenie wszystkiego co dotychczas poznałem. Tym samym postanowiłem stworzyć Single Page Application, która wykorzystuje informacje pochodzące z zewnętrznego API. Od samego początku, celem było stworzenie mini sklepu internetowego (bez funkcjonalności backendowych). Chciałem powtórzyć wszystko co związane m.in. z Routingiem czy Reduxem.
 
+## W projekcie użyłem
+- React
+- React Router v6
+- Redux Toolkit
+- React Toastify
+- Local Storage
+
+## Czego uczy mnie projekt?
+
+Podczas wykonywania projektu uczę się wykorzystania Reacta podczas budowania Single Page Application opartej o dane pochodzące z zewnętrznego API. Uczę się na bieżąco korzystania z App Wide states i użycia Redux Toolkit. Poznałem coś takiego jak React Toastify i nauczyłem się z niego korzystać. Dodatkowo poznałem zagadnienie związane z optymalizacją strony, nazwane Lazy Loading. Aplikacja, dla lepszego UX wykorzystuje również Local Storage, z którego również nauczyłem się korzystać. Wykorzystywany jest on przy okazji koszyka i przechowywania jego zawartości.
+
 **Zobacz stronę internetową [LIVE](http://store.lemiszewski.pl)**
 
 ![projectMockup2](https://user-images.githubusercontent.com/76050486/166917532-e6186a97-9718-480b-a468-f09bc8c0f2d3.png)
