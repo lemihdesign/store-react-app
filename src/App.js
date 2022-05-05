@@ -65,7 +65,7 @@ function App() {
 
   return (
     <Fragment>
-      {<TopBar id={products.id} />}
+      {/* {<TopBar id={products.id} />} */}
       <MainNavigation onShowCartHandler={showCartHandler} />
       <main className={pathname === "/" ? "landing-page" : ""}>
         <Suspense

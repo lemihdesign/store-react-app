@@ -6,6 +6,7 @@ import image3 from "../../assets/logos/giorgio-trovato-LV_4qM5Gf9c-unsplash.jpg"
 import image4 from "../../assets/logos/usama-akram-s-gYAbQToXk-unsplash.jpg";
 
 import Layout from "../Layout/Layout";
+import { Link } from "react-router-dom";
 
 const NewCollection = () => {
   return (
@@ -13,10 +14,18 @@ const NewCollection = () => {
       <Layout>
         <h1>Latest Collection</h1>
         <div className={classes["collections-container"]}>
-          <img src={image1} alt="" />
-          <img src={image2} alt="" />
-          <img src={image3} alt="" />
-          <img src={image4} alt="" />
+          <Link to="/store/men">
+            <img src={image1} alt="Shoe" />
+          </Link>
+          <Link to="/store/women">
+            <img src={image2} alt="Shoe" />
+          </Link>
+          <Link to="/store/men">
+            <img src={image3} alt="Shoe" />
+          </Link>
+          <Link to="/store/child">
+            <img src={image4} alt="Shoe" />
+          </Link>
         </div>
       </Layout>
     </div>

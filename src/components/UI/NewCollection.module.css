@@ -21,13 +21,15 @@
     margin-top: 25px;
   }
 
-  .collections-container img {
+  .collections-container a {
     width: 46%;
     height: 50%;
     margin: 0 5px;
   }
 
   .collections-container img {
+    width: 100%;
+    height: 100%;
     margin-top: 30px;
   }
 }
@@ -69,13 +71,18 @@
     padding: 50px 0 150px 0;
   }
 
-  .collections-container img {
+  .collections-container a {
     width: 40%;
     height: 40%;
     margin: 0 5px;
   }
 
-  .collections-container img:nth-child(even) {
+  .collections-container img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .collections-container a:nth-child(even) {
     margin-top: 30px;
   }
 }
